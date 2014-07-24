@@ -24,7 +24,7 @@ end
 
 # Should-matchers for model testing.
 group :test do
-	gem 'should-matchers', require: false
+	gem 'shoulda-matchers', require: false
 end
 
 # Use jquery as the JavaScript library
