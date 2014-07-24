@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 #PostgreSQL
 gem 'pg'
 
+
+
 # rspec-rails
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
@@ -25,6 +27,7 @@ end
 # Should-matchers for model testing.
 group :test do
 	gem 'shoulda-matchers', require: false
+
 end
 
 # Use jquery as the JavaScript library
