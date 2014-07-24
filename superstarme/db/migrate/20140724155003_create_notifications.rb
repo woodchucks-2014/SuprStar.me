@@ -1,7 +1,7 @@
 class Notifications < ActiveRecord::Migration
   def change
     create_table :notifications do |t|
-      t.boolean        :was_notified
+      t.boolean        :was_notified,   :default => false
       t.belongs_to     :user
       t.belongs_to     :party
 
