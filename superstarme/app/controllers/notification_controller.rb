@@ -20,15 +20,6 @@ class NotificationController < ApplicationController
 		twiml.text
 	end
 
-	# def receive_sms
-	# 	reply = params[:Body]
-	# 	user_phone_number = params[:From]
-
-	# 	user = User.find_by_phone_number(user_phone_number)
-
-	# 	redirect_to :root
-	# end
-
 
 
 end
