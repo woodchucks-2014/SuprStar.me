@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'notification#index'
+  root to: 'notification#authenticate'
 
   # get '/send', to: 'notification#send_back'
   # The priority is based upon order of creation: first created -> highest priority.
