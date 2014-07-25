@@ -13,7 +13,11 @@ def receive_sms
 
 		phone_number = text.from
 		user = User.find_by(phone_number: phone_number)
+		p "*"* 200
+		p user
 		party = Party.find_by(hash_tag: hashtag)
+		p "*"* 200
+		p party
 
 		what_song = "What Song?" #to be revised
 
