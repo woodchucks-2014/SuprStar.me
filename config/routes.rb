@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'notification#index'
 
+  get 'receive_sms' => "notification#receive_sms", :as => :receive_sms
+
   # get '/send', to: 'notification#send_back'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

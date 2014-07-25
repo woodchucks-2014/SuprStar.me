@@ -8,7 +8,7 @@ class NotificationController < ApplicationController
 		send_sms(9099640670, 'authentication testing')
 	end
 
-	def send_back
+	def receive_sms
 		sender = params[:From]
 		friends = {
 			9099640670 => "Kenneth"
@@ -19,5 +19,5 @@ class NotificationController < ApplicationController
 		end
 		twiml.text
 	end
-	
+
 end 
