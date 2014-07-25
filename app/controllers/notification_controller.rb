@@ -6,20 +6,25 @@ class NotificationController < ApplicationController
 	end
 
 	def receive_sms
-		text = read_first_sms
-		body = text.body.split(",")
-		name = body[1]
-		hashtag = body[0]
+		text = read_received_sms
+		arr = text.body.split(",")
+		hash_tag = arr[0].strip
+		name = arr[1]
 
 		phone_number = text.from
 		user = User.find_by(phone_number: phone_number)
-		party = Party.find_by(hash_tag: hashtag)
+		@party = Party.where(hash_tag: hash_tag)
 
-		what_song = "What Song?" #to be revised
+
+		what_song = "What song do you wanna sing?"
+		wrong_format = "Wrong Format. Please Try Again!
+		Format: (#hashtag, name)"
 
 		if !user
-			if party
-				user = User.create(name: name, phone_number: phone_number, party: party.id)
+			if @party.empty?
+				send_sms(phone_number, wrong_format)
+			else
+				user = User.create(name: name, phone_number: phone_number, party_id: @party.first.id)
 				send_sms(user.phone_number, what_song)
 			end
 		end
@@ -32,7 +37,7 @@ class NotificationController < ApplicationController
 
 end
 
-# first text should contain (name, hashtag)
+# first text should contain (hashtag, name)
 # check if phone_number is in database
 # if not user,
 	#check format of text for hashtag
