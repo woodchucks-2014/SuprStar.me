@@ -13,4 +13,8 @@ module NotificationHelper
 			)
 	end
 
+	def read_first_sms
+		twilio_client.account.messages.list.first
+	end
+
 end
