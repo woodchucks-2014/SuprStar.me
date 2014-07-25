@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140724155016) do
   enable_extension "plpgsql"
 
   create_table "notifications", force: true do |t|
-    t.boolean  "was_notified"
+    t.boolean  "was_notified", default: false
     t.integer  "user_id"
     t.integer  "party_id"
     t.datetime "created_at"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140724155016) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "phone_number"
-    t.boolean  "is_verified"
+    t.boolean  "is_verified",  default: false
     t.integer  "party_id"
     t.datetime "created_at"
     t.datetime "updated_at"
