@@ -13,6 +13,9 @@ class NotificationController < ApplicationController
 			r.Message do |message|
 				p message.Body "Body"
 			end
+			p "*" * 40
+			render xml: "<Response/>"
+			p "*" * 40
 			# Message "Hey Monkey. Thanks for the message!"
 		end
 		twiml.text
