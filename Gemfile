@@ -15,13 +15,12 @@ gem 'coffee-rails', '~> 4.0.0'
 
 #PostgreSQL
 gem 'pg'
-
+gem 'twilio-ruby'
 
 
 # rspec-rails
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
-  gem 'twilio-ruby'
 end
 
 # Should-matchers for model testing.
