@@ -22,4 +22,4 @@ class NotificationController < ApplicationController
 
 
 
-end
+end 
