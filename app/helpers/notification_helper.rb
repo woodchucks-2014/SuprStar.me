@@ -5,4 +5,12 @@ module NotificationHelper
     client = Twilio::REST::Client.new twilio_sid, twilio_token
 	end
 
+	def send_sms(phone_number, body)
+		twilio_client.account.messages.create(
+			:from => '+18454434529',
+			:to => phone_number,
+			:body => body
+			)
+	end
+
 end
