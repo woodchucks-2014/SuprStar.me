@@ -13,7 +13,7 @@ class NotificationController < ApplicationController
 		user = User.find_by(phone_number: phone_number)
 
 		if arr[0][0].include?("#")
-			hashtag = arr[0].strip
+			hash_tag = arr[0].strip
 			name = arr[1]
 			party = Party.where(hash_tag: hash_tag)
 		else
