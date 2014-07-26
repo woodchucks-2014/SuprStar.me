@@ -13,7 +13,7 @@ class NotificationController < ApplicationController
 		user = User.find_by(phone_number: phone_number)
 
 		if arr[0][0].include?("#")
-			hashtag = arr[0].strip
+			hash_tag = arr[0].strip
 			name = arr[1]
 			party = Party.where(hash_tag: hash_tag)
 		else
@@ -23,7 +23,7 @@ class NotificationController < ApplicationController
 		wrong_format = "Wrong Format. Please Try Again!
 		Format: (#hashtag, name)"
 		what_song = "You are on your way to becoming a SuprStar! What song would you like to sing?"
-		confirm_song = "You are one step closer SuprStar! Get ready to sing #{song_info}!"
+		confirm_song = "You are one step closer SuprStar! Get ready to sing #{song_info} !"
 
 		if !user
 			if party.empty?
