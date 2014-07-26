@@ -26,17 +26,6 @@ group :development, :test do
   gem 'jasmine'
 end
 
-# Should-matchers for model testing.
-group :test do
-	gem 'shoulda-matchers', require: false
-
-end
-
-# Should-matchers for model testing.
-group :test do
-	gem 'shoulda-matchers', require: false
-
-end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
