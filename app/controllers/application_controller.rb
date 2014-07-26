@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  require 'google/api_client'
 
   protect_from_forgery with: :exception
 
@@ -6,16 +7,13 @@ class ApplicationController < ActionController::Base
     send_sms('845-594-2698','Hello John')
   end
 
-  class YoutubeController < ApplicationController
-    require 'google/api_client'
-
-    DEVELOPER_KEY = ''
+    YOUTUBE_DEVELOPER_KEY = ENV["YOUTUBE_API_KEY"]
     YOUTUBE_API_SERVICE_NAME = 'youtube'
     YOUTUBE_API_VERSION = 'v3'
 
     def get_service
       client = Google::APIClient.new(
-      :key => DEVELOPER_KEY,
+      :key => YOUTUBE_DEVELOPER_KEY,
       :authorization => nil,
       :application_name => $PROGRAM_NAME,
       :application_version => '1.0.0'
@@ -36,7 +34,7 @@ class ApplicationController < ActionController::Base
         :api_method => youtube.search.list,
         :parameters => {
           :part => 'snippet',
-          :q => song + "karaoke"
+          :q => song + " karaoke"
         }
         )
 
@@ -45,8 +43,8 @@ class ApplicationController < ActionController::Base
         search_response.data.items.each do |search_result|
           case search_result.id.kind
           when 'youtube#video'
-            videos << { title: search_result.snippet.title,
-                        ytid: search_result.id.videoId }
+            videos << { :title => search_result.snippet.title,
+                        :ytid => search_result.id.videoId }
           end
         end
 
@@ -67,5 +65,4 @@ class ApplicationController < ActionController::Base
       p @next_song
       p @party.queue
     end
-  end
 end
