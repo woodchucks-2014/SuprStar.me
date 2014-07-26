@@ -15,7 +15,7 @@ class NotificationController < ApplicationController
 		if arr[0][0].include?("#")
 			hashtag = arr[0].strip
 			name = arr[1]
-			party = Party.find_by_hash_tag(hash_tag)
+			party = Party.where(hash_tag: hash_tag)
 		else
 			song_info = arr.join
 		end
@@ -26,7 +26,7 @@ class NotificationController < ApplicationController
 		confirm_song = "You are one step closer SuprStar! Get ready to sing #{song_info}!"
 
 		if !user
-			if party == nil
+			if party.empty?
 				send_sms(phone_number, wrong_format)
 			else
 				user = User.create(name: name, phone_number: phone_number, party_id: party.first.id)
