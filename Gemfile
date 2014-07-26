@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 #PostgreSQL
 gem 'pg'
-gem 'twilio-ruby'
+gem 'twilio-ruby', '~> 3.11'
 
 
 # rspec-rails
