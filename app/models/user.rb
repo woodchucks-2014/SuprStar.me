@@ -1,14 +1,9 @@
 class User < ActiveRecord::Base
 
-  # belongs_to   :notification
   belongs_to   :party
   has_many     :songs
 
-  # validates_presence_of    :name, :phone_number
-  # validates    :phone_number, format: { with: /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/,
-                              # message: "Wrong Format 000-000-0000"}
-                           #might have to change this to account for the +1
-
-  # validates    :is_verified, presence: true
+  validates_presence_of    :name, :phone_number
+  validates_format_of      :phone_number, :with => /\A\+1\d{10}\z/, :allow_nil => true, message: "Number must consisits of +1 followed by a 10 digit number, i.e. +15551234567"
 
 end
