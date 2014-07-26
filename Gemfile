@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'pg'
 gem 'twilio-ruby'
 
+#Youtube Related
+gem 'google-api-client', '>0.7'
 
 # rspec-rails
 group :development, :test do
