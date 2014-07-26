@@ -34,7 +34,8 @@ class NotificationController < ApplicationController
 			end
 		else
 			if song_info
-				Song.create(name: song_info, user_id: user.id, party_id: user.party.id)
+				video = find(song_info)
+				Song.create(name: video.title, user_id: user.id, party_id: user.party.id, youtube_url: video.ytid)
 				send_sms(user.phone_number, confirm_song)
 			else
 				send_sms(user.phone_number, what_song)
