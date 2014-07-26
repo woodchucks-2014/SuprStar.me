@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
 
   def create
@@ -10,10 +9,6 @@ class ApplicationController < ActionController::Base
   class YoutubeController < ApplicationController
     require 'google/api_client'
 
-    # Set DEVELOPER_KEY to the API key value from the APIs & auth > Credentials
-    # tab of
-    # Google Developers Console <https://console.developers.google.com/>
-    # Please ensure that you have enabled the YouTube Data API for your project.
     DEVELOPER_KEY = ''
     YOUTUBE_API_SERVICE_NAME = 'youtube'
     YOUTUBE_API_VERSION = 'v3'
@@ -47,12 +42,11 @@ class ApplicationController < ActionController::Base
 
         videos = []
 
-        # Add each result to the appropriate list, and then display the lists of
-        # matching videos, channels, and playlists.
         search_response.data.items.each do |search_result|
           case search_result.id.kind
           when 'youtube#video'
-            videos << {title: search_result.snippet.title, ytid: search_result.id.videoId}
+            videos << { title: search_result.snippet.title,
+                        ytid: search_result.id.videoId }
           end
         end
 
@@ -64,7 +58,6 @@ class ApplicationController < ActionController::Base
     end
 
     def add_song(song)
-
     end
 
     def retrieve_from_queue
@@ -74,8 +67,5 @@ class ApplicationController < ActionController::Base
       p @next_song
       p @party.queue
     end
-
   end
-
-
 end
