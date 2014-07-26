@@ -26,7 +26,7 @@ class NotificationController < ApplicationController
 		confirm_song = "You are one step closer SuprStar! Get ready to sing #{song_info}!"
 
 		if !user
-			if party.empty?
+			if party ||= nil
 				send_sms(phone_number, wrong_format)
 			else
 				user = User.create(name: name, phone_number: phone_number, party_id: party.first.id)
