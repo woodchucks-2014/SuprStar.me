@@ -9,40 +9,48 @@ class NotificationController < ApplicationController
 		text = read_received_sms
 		phone_number = text.from
 		arr = text.body.split(",")
+		welcome = text.body
+		hash_tag = arr[0].strip
+		name = arr[1]
+		title_artist = arr[2]
+
 
 		user = User.find_by(phone_number: phone_number)
+		party = Party.where(hash_tag: hash_tag)
 
-		if arr[0][0].include?("#")
-			hash_tag = arr[0].strip
-			name = arr[1]
-			party = Party.where(hash_tag: hash_tag)
-		else
-			song_info = arr.join
-		end
+		get_ready_to_sing = 'Get ready to sing SuprStar!
+												To sing again text 1 and then your song.
+												To send a comment text 2 and then your comment.'
+		check_format_for_hashtag = "Please try to verify party, name, artist and song again"
+		did_not_recognize = "Try again SuprStar. example #SuprStar, Matt Bunday, Friday by Rebecca Black"
+		second_song = "Going again SuprStar?"
+		be_nice = "...."
 
-		wrong_format = "Wrong Format. Please Try Again!
-		Format: (#hashtag, name)"
-		what_song = "You are on your way to becoming a SuprStar! What song would you like to sing?"
-		confirm_song = "You are one step closer SuprStar! Get ready to sing #{song_info} !"
 
-		if !user
-			if party.empty?
-				send_sms(phone_number, wrong_format)
-			else
-				user = User.create(name: name, phone_number: phone_number, party_id: party.first.id)
-				send_sms(user.phone_number, what_song)
-			end
-		else
-			if song_info
+		if hash_tag.include?('#') && name && title_artist
+				# Save user's name, number, party_id
+				# Save song's name, user_id, party_id
 				video = find(song_info)
+				user = User.create(name: name, phone_number: phone_number, party_id: party.first.id)
 				Song.create(name: video.title, user_id: user.id, party_id: user.party.id, youtube_url: video.ytid)
-				send_sms(user.phone_number, confirm_song)
-			else
-				send_sms(user.phone_number, what_song)
-			end
+				send_sms(phone_number, get_ready_to_sing) #confirmed
+
+		elsif !hash_tag.include?('#') && name && title_artist
+			send_sms(phone_number, check_format_for_hashtag) #confirmed
+
+		elsif user && !arr.include?(",") && hash_tag.include?('2') #comments
+			send_sms(phone_number, be_nice) #confirmed
+				# Save comment's content, user_id, party_id
+				Comment.create(content: hash_tag, user_id: user.id, party_id: user.party.id)
+
+		elsif party && hash_tag.include?("1") #anything but blank
+			send_sms(phone_number, second_song) #confirmed
+
+		elsif
+			send_sms(phone_number, did_not_recognize)
+
 		end
 	end
-
 
 	def authenticate
 
