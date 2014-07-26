@@ -23,7 +23,7 @@ class NotificationController < ApplicationController
 		wrong_format = "Wrong Format. Please Try Again!
 		Format: (#hashtag, name)"
 		what_song = "You are on your way to becoming a SuprStar! What song would you like to sing?"
-		confirm_song = "You are one step closer SuprStar! Get ready to sing #{song_info}!"
+		confirm_song = "You are one step closer SuprStar! Get ready to sing #{song_info} !"
 
 		if !user
 			if party.empty?
