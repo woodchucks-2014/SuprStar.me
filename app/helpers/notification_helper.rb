@@ -17,4 +17,11 @@ module NotificationHelper
 		twilio_client.account.messages.list.first
 	end
 
+	# def authenticate(user)
+	# 	if !user.exists?
+	# 		User.create()
+	#
+	#
+	# end
+
 end
