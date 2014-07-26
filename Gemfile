@@ -21,6 +21,15 @@ gem 'twilio-ruby'
 # rspec-rails
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'jasmine'
+end
+
+# Should-matchers for model testing.
+group :test do
+	gem 'shoulda-matchers', require: false
+
 end
 
 # Should-matchers for model testing.
@@ -52,4 +61,3 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
