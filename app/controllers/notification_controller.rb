@@ -1,9 +1,11 @@
 class NotificationController < ApplicationController
 	include NotificationHelper
+	include YouTubeHelper
+
 	skip_before_action :verify_authenticity_token
 
 	def index
-		@party = Party.find_by_id(1)
+		#@party = Party.find_by_id(1)
 	end
 
 	def receive_sms
@@ -19,16 +21,17 @@ class NotificationController < ApplicationController
 		# Determine incoming format of text message
 		verification_text = text_body[0].include?("#")
 		new_song_text = text_body[0].include?("1")
-		comment_text = text_body[0].include?("2") # + , - , =
+		comment_text = text_body[0].include?("2")
 
 		#Determine reception of text message
 		case
 		when verification_text
 			text_body = text.body.split(",")
-  		hash_tag = text_body[0].strip
+  		hash_tag = text_body[0]
 			name = text_body[1]
 			title_artist = text_body[2]
-			party = Party.where(hash_tag: hash_tag)
+			party = Party.find_by_hash_tag(hash_tag)
+			p party
 		when new_song_text
 			song_info = text_body
 			party = user.party
@@ -43,7 +46,6 @@ class NotificationController < ApplicationController
 		check_format_for_hashtag = "Please try to verify party, name, artist and song again"
 		did_not_recognize = "Try again SuprStar. example #SuprStar, Matt Bunday, Friday by Rebecca Black"
 		second_song = "Going again SuprStar?"
-
 		be_nice = "Comment Received"
 
 		# Determine parameters of incoming text message
@@ -56,13 +58,14 @@ class NotificationController < ApplicationController
 		case
 		when all_parameters_met
 			video = find(title_artist)
+			p party
 			user = User.create(name: name, phone_number: phone_number,
-												 party_id: party.first.id)
+												 party_id: party.id)
 			song = Song.create(name: video[:title], user_id: user.id,
 												 party_id: user.party.id, youtube_url: video[:ytid])
 			party_queue = user.party.queue
 			party_queue << song
-			party.first.update(queue: party_queue)
+			party.update(queue: party_queue)
 			send_sms(phone_number, get_ready_to_sing)
 		when user_not_verified
 			send_sms(phone_number, check_format_for_hashtag)
