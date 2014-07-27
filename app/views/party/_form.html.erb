@@ -12,6 +12,10 @@
 <%= u.text_field :phone_number %>
 <% end %>
 <br>
+<%= fields_for @song do |s| %>
+<%= s.label :first_song %><br>
+<%= s.text_field :name %>
+<% end %>
 <%= p.submit "Submit" %>
 
 <% end %>

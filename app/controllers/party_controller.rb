@@ -1,4 +1,5 @@
 class PartyController < ApplicationController
+  include YouTubeHelper
   respond_to :json
 
   def show
@@ -9,13 +10,19 @@ class PartyController < ApplicationController
   def new
     @party = Party.new
     @user = User.new
+    @song = Song.new
   end
 
   def create
-    p @party = Party.new(party_params)
-    p @user = User.new(user_params)
+    @party = Party.new(party_params)
+    @user = User.new(user_params)
     if @party.save && @user.save
       session[:party_id] = @party.id
+      first = find(first_song[:name])
+      @song = Song.create(youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id, name: first[:title])
+      @party.queue = []
+      @queue = @party.queue << @song.serializable_hash
+      @party.update(queue: @queue)
       redirect_to retrieve_party_path
     else
       flash[:notice] = "Something went wrong, please try again."
@@ -24,7 +31,7 @@ class PartyController < ApplicationController
   end
 
   def retrieve_video_id
-    @party = Party.find_by_id(1) #where to find id?
+    @party = Party.find_by_id(session[:party_id]) #where to find id?
     @queue = @party.queue
     @current_video = @queue.shift
     @party.update(queue: @queue)
@@ -34,11 +41,15 @@ class PartyController < ApplicationController
 
 
   private
-    def party_params
-      params.require(:party).permit(:hash_tag)
-    end
+  def party_params
+    params.require(:party).permit(:hash_tag)
+  end
 
-    def user_params
-      params.require(:user).permit(:name, :phone_number)
-    end
+  def first_song
+    params.require(:song).permit(:name)
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :phone_number)
+  end
 end
