@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'comment#index'
+  root to: 'notification#index'
 
   get 'receive_sms' => "notification#receive_sms", :as => :receive_sms
   post 'receive_sms' => "notification#receive_sms"
