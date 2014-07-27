@@ -18,14 +18,13 @@
 
 
 $(function(){
-	if ($("#comments").length > 0) {
+	if ($("#comments").length) {
 		setTimeout(updateComments, 5000)
 	}
 });
 
 function updateComments () {
-	$.getScript("/comments.js")
+	$.getScript("/comment")
 	setTimeout(updateComments, 5000);
 }
 
-comments controller index action
