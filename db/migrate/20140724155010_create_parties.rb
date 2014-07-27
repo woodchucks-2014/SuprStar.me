@@ -3,7 +3,7 @@ class CreateParties < ActiveRecord::Migration
     create_table :parties do |t|
 
       t.string      :hash_tag
-      t.text        :queue
+      t.text        :queue, default: "[]"
 
       t.timestamps
     end

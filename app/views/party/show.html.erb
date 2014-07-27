@@ -1,0 +1,18 @@
+<h1>This is the home page</h1>
+<div>
+    <h1>Youtube</h1>
+    <div id="videoDiv"></div>
+    <button id="next">Next Star!</button>
+</div>
+
+<h2>Comments</h2>
+<div id="comments">
+  <ul class="comment">
+  <% @party.comments.each do |comment| %>
+  <li  data-time="<%= comment.created_at.to_i%>">
+    <%= comment.content %>
+    <%= comment.user.name %>
+  </li>
+  <% end %>
+  </ul>
+</div>
