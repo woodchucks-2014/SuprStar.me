@@ -16,7 +16,7 @@ class PartyController < ApplicationController
     p @user = User.new(user_params)
     if @party.save && @user.save
       session[:party_id] = @party.id
-      redirect_to 'party#show'
+      redirect_to retrieve_party_path
     else
       flash[:notice] = "Something went wrong, please try again."
       render 'new'
