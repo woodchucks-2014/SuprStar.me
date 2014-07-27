@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', group: :production
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use SCSS for stylesheets
@@ -26,7 +28,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # Makes running your Rails app easier
 gem 'rails_12factor'
-
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

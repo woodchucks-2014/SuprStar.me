@@ -3,7 +3,6 @@ function onYouTubePlayerReady(playerId) {
   ytplayer.addEventListener("onError", "onPlayerError");
 }
 
-// Educated guess lol
 loadVideo = function(videoid) {
   var videoID = videoid //get unique id from the server
   console.log(videoID);
@@ -12,22 +11,41 @@ loadVideo = function(videoid) {
   }
 }
 
-function loadPlayer() {
-  var videoID = 'NiXbRBS5Z58'
+function loadPlayer(video) {
+  var videoID = video;
   var params = { allowScriptAccess: "always"};
   var atts = { id: "ytPlayer" };
   swfobject.embedSWF("http://www.youtube.com/v/" + videoID +
-                     "?version=3&enablejsapi=1&playerapiid=player1",
-                     "videoDiv", "640", "360", "9", null, null, params, atts);
+   "?version=3&enablejsapi=1&playerapiid=player1",
+   "videoDiv", "640", "360", "9", null, null, params, atts);
 }
 
 
-function _run() {
-  loadPlayer();
+function _run(videoId) {
+  loadPlayer(videoId);
 }
 
 $(document).ready(function(){
-  _run();
+  $("#videoDiv").hide();
+  $("#start").on("click", function(e){
+    e.preventDefault();
+    $("#start").fadeOut();
+    var get_first_video = $.ajax({
+      url: "/retrieve_video_id",
+      method: "GET",
+      dataType: "json"
+    });
+    get_first_video.success(function(response){
+    _run(response.url.youtube_url); //video id here
+      console.log("success bitch!");
+      console.log(response);
+      $("#videoDiv").slideDown();
+    });
+    get_first_video.fail(function(response){
+      console.log("Video Failed To Load");
+    });
+  });
+
   $("#next").on("click", function(e){
     e.preventDefault();
     // Send ajax request from server getting next video id
@@ -40,5 +58,6 @@ $(document).ready(function(){
     }).fail(function( response ){
       console.log("Not today!");
     });
+
   });
 });

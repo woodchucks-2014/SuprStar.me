@@ -1,8 +1,9 @@
 class NotificationController < ApplicationController
 	include NotificationHelper
+	skip_before_action :verify_authenticity_token
 
 	def index
-
+		@party = Party.find_by_id(1)
 	end
 
 	def receive_sms
@@ -42,6 +43,7 @@ class NotificationController < ApplicationController
 		check_format_for_hashtag = "Please try to verify party, name, artist and song again"
 		did_not_recognize = "Try again SuprStar. example #SuprStar, Matt Bunday, Friday by Rebecca Black"
 		second_song = "Going again SuprStar?"
+
 		be_nice = "Comment Received"
 
 		# Determine parameters of incoming text message
