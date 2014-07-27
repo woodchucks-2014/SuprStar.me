@@ -14,8 +14,9 @@
 // = require jquery_ujs
 // = require turbolinks
 // = require_tree .
-
-
+function seconds(datetime) {
+	return new Date().getTime() / 1000;
+};
 
 $(function(){
 	if ($("#comments").length > 0) {
@@ -31,12 +32,14 @@ function updateComments () {
 		method: "POST",
 		data: latestCommentTime
 	}).done(function( response ) {
-		console.log(response.content.length);
 		for (var i=0; i < response.content.length; i++) {
-			console.log(response);
-			console.log(response.content[i].created_at);
-			// need to interpolate data time on li tag
-		$('.comment').append('<li data-time='+response.content[i].created_at+'>'+ response.content[i].content +'</li>'); 
+			var time = response.content[i].created_at;
+			var time_in_seconds = seconds(time).to_s;
+			if($("li").size() > 5) {
+				console.log("here")
+				$(".comment li").eq(1).slideUp("slow").remove();
+			};
+			$('.comment ul').append('<li data-time='+ time_in_seconds +'>'+ response.content[i].content +'</li>').hide().fadeIn();
 		};
 	}).fail(function( response ){
 		console.log("failed");
@@ -44,5 +47,3 @@ function updateComments () {
 
 	setTimeout(updateComments, 5000);
 }
-
-
