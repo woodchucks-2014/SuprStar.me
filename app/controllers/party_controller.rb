@@ -2,13 +2,25 @@ class PartyController < ApplicationController
   respond_to :json
 
   def show
-    @party = Party.find_by_id(1)
+    @party = Party.find_by_id(session[:party_id])
     @comments = Comment.where(party_id: @party.id)
   end
 
   def new
     @party = Party.new
     @user = User.new
+  end
+
+  def create
+    p @party = Party.new(party_params)
+    p @user = User.new(user_params)
+    if @party.save && @user.save
+      session[:party_id] = @party.id
+      redirect_to 'party#show'
+    else
+      flash[:notice] = "Something went wrong, please try again."
+      render 'new'
+    end
   end
 
   def retrieve_video_id
@@ -20,15 +32,6 @@ class PartyController < ApplicationController
     render json: {url: @current_video }
   end
 
-  def create
-    @party = Party.new(party_params)
-    @user = User.new(user_params)
-    if @party.save && @user.save
-      redirect_to 'root'
-    else
-      render 'new'
-    end
-  end
 
   private
     def party_params
