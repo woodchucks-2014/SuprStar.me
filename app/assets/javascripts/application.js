@@ -15,7 +15,7 @@
 // = require turbolinks
 // = require_tree .
 function seconds(datetime) {
-	return new Date().getTime() / 1000;
+	return new Date(datetime).getTime() / 1000;
 };
 
 $(function(){
@@ -26,21 +26,23 @@ $(function(){
 
 function updateComments () {
 
-	var latestCommentTime = {time: $("ul li:last-child").attr("data-time")};
+	var latestCommentTime = {time: $("li:last-child").attr("data-time")};
+	console.log(latestCommentTime);
 	$.ajax({
 		url: "/retrieve_comments",
 		method: "POST",
 		data: latestCommentTime
 	}).done(function( response ) {
-		console.log("success");
 		for (var i=0; i < response.content.length; i++) {
-			var time = response.content[i].created_at;
-			var time_in_seconds = seconds(time).to_s;
+			var time = response.content[i].obj.created_at;
+			console.log(time);
+			var time_in_seconds = seconds(time);
+				console.log(time_in_seconds);
 			if($("li").size() >= 5) {
 				$(".comment li:first-child").slideUp("slow").remove();
-				$('.comment').append('<li data-time="+ time_in_seconds + ">' + response.content[i].content + '</li>').fadeIn();
+				$('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name +'</li>').fadeIn();
 			} else {
-			$('.comment').append('<li data-time="+ time_in_seconds + ">' + response.content[i].content + '</li>').fadeIn();
+			$('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>').fadeIn();
 			}
 		};
 	}).fail(function( response ){
