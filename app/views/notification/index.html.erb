@@ -13,14 +13,14 @@
 <h2>Comments</h2>
 
 <div id="comments">
-	<ul class="comment">
-	<% @party.comments.each do |comment| %>
-	<li  data-time="<%= comment.created_at.to_i%>">
-		<%= comment.content %>
-		<%= comment.user.name %>
-	</li>
-	<% end %>
-	</ul>
+  <ul class="comment">
+  <% @party.comments.each do |comment| %>
+  <li  data-time="<%= comment.created_at.to_i%>">
+    <%= comment.content %>
+    <%= comment.user.name %>
+  </li>
+  <% end %>
+  </ul>
 </div>
 
 

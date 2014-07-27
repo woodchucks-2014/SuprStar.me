@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'notification#index'
+  root to: 'party#index'
 
   get 'receive_sms' => "notification#receive_sms", :as => :receive_sms
   post 'receive_sms' => "notification#receive_sms"
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'retrieve_video_id' => "you_tube#retrieve_video_id"
   post 'retrieve_comments' => "comment#retrieve_comments"
   resources :comment
+  resources :party
   # get '/send', to: 'notification#send_back'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
