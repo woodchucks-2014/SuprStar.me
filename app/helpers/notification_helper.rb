@@ -17,5 +17,5 @@ module NotificationHelper
 		twilio_client.account.messages.list({:to => '+18454434529'}).first
 	end
 
-end
 
+end

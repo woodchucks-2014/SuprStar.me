@@ -6,6 +6,7 @@ class NotificationController < ApplicationController
 	end
 
 	def receive_sms
+
 		text = read_received_sms
 		phone_number = text.from
 		arr = text.body #.split(",")
@@ -37,6 +38,7 @@ class NotificationController < ApplicationController
 		did_not_recognize = "Try again SuprStar. example #SuprStar, Matt Bunday, Friday by Rebecca Black"
 		second_song = "Going again SuprStar?"
 		be_nice = "..Temporary Message.."
+
 
 
 		if hash_tag && name && title_artist
