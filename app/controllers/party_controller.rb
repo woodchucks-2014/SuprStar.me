@@ -5,7 +5,6 @@ class PartyController < ApplicationController
   def show
     @party = Party.find(session[:party_id])
     @comments = @party.comments
-
   end
 
   def new

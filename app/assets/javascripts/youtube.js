@@ -20,7 +20,6 @@ function loadPlayer(video) {
    "videoDiv", "640", "360", "9", null, null, params, atts);
 }
 
-
 function _run(videoId) {
   loadPlayer(videoId);
 }

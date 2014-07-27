@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'receive_sms' => "notification#receive_sms", :as => :receive_sms
   post 'receive_sms' => "notification#receive_sms"
 
-  get 'retrieve_video_id' => "you_tube#retrieve_video_id"
+  get 'retrieve_video_id' => "party#retrieve_video_id"
   post 'retrieve_comments' => "comment#retrieve_comments"
 
   get 'retrieve_party' => "party#show"

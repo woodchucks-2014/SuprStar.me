@@ -1,5 +1,5 @@
 class Party < ActiveRecord::Base
-  serialize :queue, Array
+  serialize :queue
 
   has_many     :users
   has_many     :songs
