@@ -2,17 +2,25 @@
 <div>
     <h1>Youtube</h1>
     <div id="videoDiv"></div>
+    <button id="start">Start!</button>
     <button id="next">Next Star!</button>
 </div>
 
 <h2>Comments</h2>
 <div id="comments">
   <ul class="comment">
-  <% @party.comments.each do |comment| %>
+  <% @comments.each do |comment| %>
   <li  data-time="<%= comment.created_at.to_i%>">
     <%= comment.content %>
     <%= comment.user.name %>
   </li>
   <% end %>
   </ul>
+</div>
+
+
+<h3>Songlist</h3>
+<div id="songlist">
+  
+
 </div>

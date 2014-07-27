@@ -5,7 +5,7 @@ class NotificationController < ApplicationController
 	skip_before_action :verify_authenticity_token
 
 	def index
-		#@party = Party.find_by_id(1)
+
 	end
 
 	def receive_sms
