@@ -13,9 +13,7 @@ module NotificationHelper
 			)
 	end
 
-	def read_received_sms
+	def read_sms
 		twilio_client.account.messages.list({:to => '+18454434529'}).first
 	end
-
 end
-
