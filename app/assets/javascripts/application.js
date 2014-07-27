@@ -32,14 +32,16 @@ function updateComments () {
 		method: "POST",
 		data: latestCommentTime
 	}).done(function( response ) {
+		console.log("success");
 		for (var i=0; i < response.content.length; i++) {
 			var time = response.content[i].created_at;
 			var time_in_seconds = seconds(time).to_s;
-			if($("li").size() > 5) {
-				console.log("here")
-				$(".comment li").eq(1).slideUp("slow").remove();
-			};
-			$('.comment ul').append('<li data-time='+ time_in_seconds +'>'+ response.content[i].content +'</li>').hide().fadeIn();
+			if($("li").size() >= 5) {
+				$(".comment li:first-child").slideUp("slow").remove();
+				$('.comment').append('<li data-time="+ time_in_seconds + ">' + response.content[i].content + '</li>').fadeIn();
+			} else {
+			$('.comment').append('<li data-time="+ time_in_seconds + ">' + response.content[i].content + '</li>').fadeIn();
+			}
 		};
 	}).fail(function( response ){
 		console.log("failed");
