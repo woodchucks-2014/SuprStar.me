@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'notification#index'
+  root to: 'party#index'
 
   get 'receive_sms' => "notification#receive_sms", :as => :receive_sms
-
   get 'retrieve_video_id' => "you_tube#retrieve_video_id"
+
+  resources :party
 
   # get '/send', to: 'notification#send_back'
   # The priority is based upon order of creation: first created -> highest priority.
