@@ -35,8 +35,10 @@ $(document).ready(function(){
       url: "/retrieve_video_id",
       method: "GET",
       dataType: "json"
+      
     }).done(function( response ) {
       loadVideo(response.videoID);
+
     }).fail(function( response ){
       console.log("Not today!");
     });
