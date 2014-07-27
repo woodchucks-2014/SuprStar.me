@@ -31,7 +31,6 @@ class NotificationController < ApplicationController
 			name = text_body[1]
 			title_artist = text_body[2]
 			party = Party.find_by_hash_tag(hash_tag)
-			p party
 		when new_song_text
 			song_info = text_body
 			party = user.party
@@ -58,7 +57,6 @@ class NotificationController < ApplicationController
 		case
 		when all_parameters_met
 			video = find(title_artist)
-			p party
 			user = User.create(name: name, phone_number: phone_number,
 												 party_id: party.id)
 			song = Song.create(name: video[:title], user_id: user.id,
@@ -78,7 +76,6 @@ class NotificationController < ApplicationController
 												 party_id: user.party.id, youtube_url: video[:ytid])
 			party_queue = user.party.queue
 			party_queue << song
-			p party
 			party.update(queue: party_queue)
 			send_sms(phone_number, second_song)
 		else
