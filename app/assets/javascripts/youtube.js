@@ -9,7 +9,7 @@ loadVideo = function(videoid) {
 };
 
 function loadPlayer() {
-  var videoID = //id for party host (first song)
+  // var videoID = //id for party host (first song)
   var params = { allowScriptAccess: "always"};
   var atts = { id: "ytPlayer" };
   swfobject.embedSWF("http://www.youtube.com/v/" + videoID +
