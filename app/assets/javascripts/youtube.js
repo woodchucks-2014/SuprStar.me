@@ -3,7 +3,6 @@ function onYouTubePlayerReady(playerId) {
   ytplayer.addEventListener("onError", "onPlayerError");
 }
 
-// Educated guess lol
 loadVideo = function(videoid) {
   var videoID = videoid //get unique id from the server
   console.log(videoID);
@@ -35,10 +34,9 @@ $(document).ready(function(){
       url: "/retrieve_video_id",
       method: "GET",
       dataType: "json"
-      
-    }).done(function( response ) {
-      loadVideo(response.videoID);
 
+    }).done(function( response ) {
+      loadVideo(response.url);
     }).fail(function( response ){
       console.log("Not today!");
     });
