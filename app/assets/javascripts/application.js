@@ -18,13 +18,31 @@
 
 
 $(function(){
-	if ($("#comments").length) {
-		setTimeout(updateComments, 5000)
-	}
+	if ($("#comments").length > 0) {
+		setTimeout(updateComments, 5000);
+	};
 });
 
 function updateComments () {
-	$.getScript("/comment")
+
+	var latestCommentTime = {time: $("ul li:last-child").attr("data-time")};
+	$.ajax({
+		url: "/retrieve_comments",
+		method: "POST",
+		data: latestCommentTime
+	}).done(function( response ) {
+		console.log(response.content.length);
+		for (var i=0; i < response.content.length; i++) {
+			console.log(response);
+			console.log(response.content[i].created_at);
+			// need to interpolate data time on li tag
+		$('.comment').append('<li data-time='+response.content[i].created_at+'>'+ response.content[i].content +'</li>'); 
+		};
+	}).fail(function( response ){
+		console.log("failed");
+	});
+
 	setTimeout(updateComments, 5000);
 }
+
 
