@@ -10,9 +10,6 @@ Create a party, sit back, relax, and let everyone text in their song when they a
 2. [Kai Prout](https://github.com/kaiprt)
 3. [Kenneth Mendonca](https://github.com/mendoncakr)
 
-## Contributing
-Read [here](./contributing.md) on how to contribute to this project
-
 ## Website
 soon to be http://www.SuprStar.me
 
