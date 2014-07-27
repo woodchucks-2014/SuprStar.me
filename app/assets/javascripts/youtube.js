@@ -32,7 +32,7 @@ function loadPlayer() {
       // Ajax code goes here
     }).done(function( response ) {
       loadVideo(response.videoID);
-    }.fail(function( response ){
+    }).fail(function( response ){
       console.log("Not today!")
     });
     // _run with updated information
