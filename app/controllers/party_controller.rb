@@ -3,8 +3,9 @@ class PartyController < ApplicationController
   respond_to :json
 
   def show
-    @party = Party.find_by_id(session[:party_id])
-    @comments = Comment.where(party_id: @party.id)
+    @party = Party.find(session[:party_id])
+    @comments = @party.comments
+
   end
 
   def new
@@ -32,8 +33,8 @@ class PartyController < ApplicationController
 
   def retrieve_video_id
     @party = Party.find_by_id(session[:party_id]) #where to find id?
-    @queue = @party.queue
-    @current_video = @queue.shift
+    p @queue = @party.queue
+    p @current_video = @queue.shift
     @party.update(queue: @queue)
 
     render json: {url: @current_video }
