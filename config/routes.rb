@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'receive_sms' => "notification#receive_sms"
 
   get 'retrieve_video_id' => "you_tube#retrieve_video_id"
-
+  post 'retrieve_comments' => "comment#retrieve_comments"
   resources :comment
   # get '/send', to: 'notification#send_back'
   # The priority is based upon order of creation: first created -> highest priority.

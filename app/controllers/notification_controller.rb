@@ -3,7 +3,7 @@ class NotificationController < ApplicationController
 	skip_before_action :verify_authenticity_token
 
 	def index
-
+		@party = Party.find_by_id(1)
 	end
 
 	def receive_sms
@@ -40,7 +40,7 @@ class NotificationController < ApplicationController
 		be_nice = "..Temporary Message.."
 
 
-		if hash_tag && name && title_artist
+		if hash_tag && name && title_artist #read_verification
 				video = find(title_artist)
 				user = User.create(name: name, phone_number: phone_number, party_id: party.first.id)
 				song = Song.create(name: video[:title], user_id: user.id, party_id: user.party.id, youtube_url: video[:ytid])
@@ -49,15 +49,15 @@ class NotificationController < ApplicationController
 				party.first.update(queue: party_queue)
 				send_sms(phone_number, get_ready_to_sing)
 
-		elsif text_body && name && title_artist
+		elsif text_body && name && title_artist #read_verification_format
 			send_sms(phone_number, check_format_for_hashtag)
 
-		elsif user && comment
+		elsif user && comment #read_comment
 			send_sms(phone_number, be_nice)
 
 				Comment.create(content: hash_tag, user_id: user.id, party_id: user.party.id)
 
-		elsif party && song_info
+		elsif party && song_info #
 			video = find(song_info)
 			song = Song.create(name: video[:title], user_id: user.id, party_id: user.party.id, youtube_url: video[:ytid])
 			party_queue = user.party.queue
@@ -70,10 +70,6 @@ class NotificationController < ApplicationController
 			send_sms(phone_number, did_not_recognize)
 
 		end
-	end
-
-	def authenticate
-
 	end
 
 end

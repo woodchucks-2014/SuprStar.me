@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  def create
-    send_sms('845-594-2698','Hello John')
-  end
+  # def create
+  #   send_sms('845-594-2698','Hello John')
+  # end
 
     YOUTUBE_DEVELOPER_KEY = ENV["YOUTUBE_API_KEY"]
     YOUTUBE_API_SERVICE_NAME = 'youtube'
