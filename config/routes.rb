@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'retrieve_video_id' => "you_tube#retrieve_video_id"
 
+  resources :party
+
   # get '/send', to: 'notification#send_back'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
