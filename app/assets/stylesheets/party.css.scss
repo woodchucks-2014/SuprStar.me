@@ -1,6 +1,8 @@
 // Place all the styles related to the party controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 .home {
     z-index: -9000;
     height: 100%;
@@ -113,6 +115,11 @@ input {
 .show #right_side {
   // display: inline-block;
 }
+
+.show .videoContainer {
+  padding-top: 100px;
+}
+
 .show #comments {
   // background-color:yellow;
   background-color: rgba(200, 54, 54, 0.5);
