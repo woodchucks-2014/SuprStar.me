@@ -7,10 +7,24 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//www.google.com/jsapi" type="text/javascript"></script>
   <script type="text/javascript">google.load("swfobject", "2.1")</script>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <div class="navbar-header">
+    <h1>SuperStar Me</h1>
+  </div>
 
+  <div class="navbar-li">
+    <ul class="nav navbar-nav pull-right">
+      <li class="">About</li>
+      <li class="">Blog</li>
+      <li class="">Team</li>
+    </ul>
+  </div>
+</nav>
 <%= yield %>
 
 </body>
