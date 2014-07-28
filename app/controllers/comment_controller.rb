@@ -1,4 +1,5 @@
 class CommentController < ApplicationController
+	include CommentHelper
 	skip_before_action :verify_authenticity_token
 	respond_to :json
 

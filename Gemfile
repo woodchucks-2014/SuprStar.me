@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rails_12factor', group: :production
-
+gem 'alchemy-api-rb', :require => "alchemy_api"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use SCSS for stylesheets
