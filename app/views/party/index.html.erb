@@ -5,10 +5,13 @@
 
 
   <div id="create_party">
-    <%= link_to 'Create Party!', new_party_path %>
+    <button id="toForm">Create Party</button>
+  </div>
+  <div id="partyForm">
+      <%= render 'form' %>
   </div>
 
-
+  <!-- <%= render '/shared/errors', :target => @user %> -->
 
 
 
