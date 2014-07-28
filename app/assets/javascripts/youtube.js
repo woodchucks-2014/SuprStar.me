@@ -17,7 +17,7 @@ function loadPlayer(video) {
   var atts = { id: "ytPlayer" };
   swfobject.embedSWF("http://www.youtube.com/v/" + videoID +
    "?version=3&enablejsapi=1&playerapiid=player1",
-   "videoDiv", "640", "360", "9", null, null, params, atts);
+   "videoPlayer", "960", "540", "9", null, null, params, atts);
 }
 
 function _run(videoId) {
@@ -25,7 +25,7 @@ function _run(videoId) {
 }
 
 $(document).ready(function(){
-  $("#videoDiv").hide();
+  $("#videoPlayer").hide();
   $("#start").on("click", function(e){
     e.preventDefault();
     $("#start").fadeOut();
@@ -36,9 +36,7 @@ $(document).ready(function(){
     });
     get_first_video.success(function(response){
     _run(response.url.youtube_url); //video id here
-      console.log("success bitch!");
-      console.log(response);
-      $("#videoDiv").slideDown();
+      $("#videoPlayer").show();
     });
     get_first_video.fail(function(response){
       console.log("Video Failed To Load");
@@ -53,7 +51,8 @@ $(document).ready(function(){
       method: "GET",
       dataType: "json"
     }).done(function( response ) {
-      loadVideo(response.url);
+
+      loadVideo(response.url.youtube_url);
     }).fail(function( response ){
       console.log("Not today!");
     });
