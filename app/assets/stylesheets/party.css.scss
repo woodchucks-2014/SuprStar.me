@@ -13,6 +13,7 @@
     left:0;
     top: 0;
     overflow: hidden;
+
     }
 
 h1 {
@@ -28,9 +29,29 @@ h1 {
   // position: fixed;
 
 }
-// div {
-//   background-color:white;
-// }
+
+.error {
+  color:red;
+}
+
+.home .button {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  text-shadow: 0px 0px 0px #666666;
+  color: #ffffff;
+  font-size: 31px;
+  background: #666666;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.home .button:hover  {
+  background: #97a0a6;
+  text-decoration: none;
+}
+
+
 #create_party {
   font-size: 4vw;
   // border: 10px solid white;
@@ -56,4 +77,54 @@ form {
 
 input {
   border-radius: 50px;
+}
+
+// SHOW PAGE
+
+.show #container {
+  width: 100%;
+  display: inline-block;
+  // background-color:black;
+}
+.show .videoContainer {
+  margin: 0 auto;
+  height: 50%;
+  // background-color: red;
+}
+
+.show #videoPlayer{
+  left: 0;
+}
+
+.show {
+    color: white;
+    z-index: -9000;
+    height: 100%;
+    width:100%;
+    text-align:center;
+    background: url('http://p1.pichost.me/i/39/1618073.jpg') no-repeat fixed center;
+    background-size: cover;
+    position: fixed;
+    left:0;
+    top: 0;
+    overflow: hidden;
+}
+
+.show #right_side {
+  // display: inline-block;
+}
+.show #comments {
+  // background-color:yellow;
+  background-color: rgba(200, 54, 54, 0.5);
+  height: 400px;
+  width: 50%;
+  float: left;
+}
+
+.show #songlist {
+  // background-color: blue;
+  height: 400px;
+  width: 50%;
+  float: right;
+
 }
