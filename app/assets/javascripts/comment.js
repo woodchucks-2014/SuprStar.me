@@ -20,7 +20,7 @@ function updateLists () {
     for (var i=0; i < response.content.length; i++) {
       var time = response.content[i].obj.created_at;
       var time_in_seconds = seconds(time);
-      if($("li").size() >= 5) {
+      if($(".comment li").size() >= 5) {
         $(".comment li:first-child").slideUp("slow").remove();
         $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name +'</li>').fadeIn();
       } else {
@@ -40,8 +40,6 @@ function updateLists () {
   updateQueue.done(function(response){
     for (var i=0; i < response.queue.length; i++) {
       var comment = '<li>' + response.queue[i].name + '</li>';
-      console.log($('.queue li:contains("'+ response.queue[i].name +'")').length);
-      console.log(response.queue[i].name === $('.queue').find('li[value="'+ response.queue[i].name + '"]'));
       if ($('.queue li:contains("'+ response.queue[i].name +'")').length < 1) {
         $('.queue').append(comment);
       }
