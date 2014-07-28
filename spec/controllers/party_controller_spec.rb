@@ -21,13 +21,14 @@ RSpec.describe PartyController, :type => :controller do
 
   describe "POST #create" do
     it "should create a new party"
-    it "should"
+    it "should create a new user"
+    it "should create a new song"
   end
 
   describe "POST #retrieve_video_id" do
-    it "should assign party as @party" do
+    it "should assign party's queue as @queue" do
       post :retrieve_video_id
-      expect(assigns(:party).hash_tag).to eq("#hash_tag")
+      expect(assigns(:queue)).to eq("party.queue")
     end
   end
 
