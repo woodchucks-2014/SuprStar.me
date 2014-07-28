@@ -5,6 +5,7 @@ class PartyController < ApplicationController
   def show
     @party = Party.find(session[:party_id])
     @comments = @party.comments
+    p @queue = @queue = @party.queue
   end
 
   def new
@@ -32,13 +33,17 @@ class PartyController < ApplicationController
 
   def retrieve_video_id
     @party = Party.find_by_id(session[:party_id]) #where to find id?
-    p @queue = @party.queue
-    p @current_video = @queue.shift
+    @queue = @party.queue
+    @current_video = @queue.shift
     @party.update(queue: @queue)
 
     render json: {url: @current_video }
   end
 
+  def retrieve_queue
+    @queue = Party.find_by_id(session[:party_id]).queue
+    render json: {queue: @queue}
+  end
 
   private
   def party_params
