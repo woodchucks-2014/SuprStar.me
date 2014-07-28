@@ -1,14 +1,17 @@
 class PartyController < ApplicationController
   include YouTubeHelper
   respond_to :json
+  def index
+    @party = Party.new
+    @user = User.new
+    @song = Song.new
+  end
 
   def show
     @party = Party.find(session[:party_id])
     @comments = @party.comments
     @queue = @queue = @party.queue
   end
-
-
 
   def create
     @party = Party.new(party_params)
