@@ -2,16 +2,13 @@ class PartyController < ApplicationController
   include YouTubeHelper
   respond_to :json
 
-  def index
-    @party = Party.new
-    @user = User.new
-    @song = Song.new
+  def show
+    @party = Party.find(session[:party_id])
+    @comments = @party.comments
+    @queue = @queue = @party.queue
   end
 
-  def show
-    @party = Party.find_by_id(session[:party_id])
-    @comments = @party.comments
-  end
+
 
   def create
     @party = Party.new(party_params)
@@ -32,14 +29,18 @@ class PartyController < ApplicationController
   end
 
   def retrieve_video_id
-    p @party = Party.find_by_id(session[:party_id]) #where to find id?
-    p @queue = @party.queue
-    p @current_video = @queue.shift
+    @party = Party.find_by_id(session[:party_id]) #where to find id?
+    @queue = @party.queue
+    @current_video = @queue.shift
     @party.update(queue: @queue)
 
     render json: {url: @current_video }
   end
 
+  def retrieve_queue
+    @queue = Party.find_by_id(session[:party_id]).queue
+    render json: {queue: @queue}
+  end
 
   private
   def party_params

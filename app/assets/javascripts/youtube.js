@@ -35,8 +35,9 @@ $(document).ready(function(){
       dataType: "json"
     });
     get_first_video.success(function(response){
-    _run(response.url.youtube_url); //video id here
-      $("#videoPlayer").show();
+    _run(response.url.youtube_url);
+      console.log(response);
+      $("#videoDiv").slideDown();
     });
     get_first_video.fail(function(response){
       console.log("Video Failed To Load");
