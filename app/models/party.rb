@@ -5,7 +5,7 @@ class Party < ActiveRecord::Base
   has_many     :songs
   has_many 		 :comments
 
-  validate    :hash_tag, presence: true
+  validate    :hash_tag, presence: true, message: "Please enter in a hashtag to continue. ie: #SuprStar."
   # validates_uniqueness_of :hash_tag
   #validates    :queue
 
