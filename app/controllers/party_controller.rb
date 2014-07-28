@@ -1,33 +1,37 @@
 class PartyController < ApplicationController
   include YouTubeHelper
   respond_to :json
-
-  def show
-    @party = Party.find(session[:party_id])
-    @comments = @party.comments
-    p @queue = @queue = @party.queue
-  end
-
-  def new
+  def index
     @party = Party.new
     @user = User.new
     @song = Song.new
   end
 
+  def show
+    @party = Party.find(session[:party_id])
+    @comments = @party.comments
+    @queue = @queue = @party.queue
+  end
+
   def create
     @party = Party.new(party_params)
     @user = User.new(user_params)
+    @song = Song.new(first_song)
     if @party.save && @user.save
+      @user.update(phone_number: "+1" + @user.phone_number)
       session[:party_id] = @party.id
-      first = find(first_song[:name])
-      @song = Song.create(youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id, name: first[:title])
+      p "-"* 100
+      p first = find(first_song[:name])
+      p first[:title]
+      p @song = Song.create(name: first[:title], youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id)
+      p "-"* 100
       @party.queue = []
       @queue = @party.queue << @song.serializable_hash
       @party.update(queue: @queue)
       redirect_to retrieve_party_path
     else
       flash[:notice] = "Something went wrong, please try again."
-      render 'new'
+      render 'index'
     end
   end
 
