@@ -9,7 +9,7 @@ class PartyController < ApplicationController
   end
 
   def show
-    @party = Party.find_by_id(1)
+    @party = Party.find_by_id(session[:party_id])
     @comments = @party.comments
   end
 
@@ -32,7 +32,7 @@ class PartyController < ApplicationController
   end
 
   def retrieve_video_id
-    p @party = Party.find_by_id(1) #where to find id?
+    p @party = session[:party_id] #where to find id?
     p @queue = @party.queue
     p @current_video = @queue.shift
     @party.update(queue: @queue)
