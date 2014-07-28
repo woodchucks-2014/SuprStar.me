@@ -26,8 +26,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# Makes running your Rails app easier
-gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

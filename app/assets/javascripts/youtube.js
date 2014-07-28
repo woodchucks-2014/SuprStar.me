@@ -17,7 +17,7 @@ function loadPlayer(video) {
   var atts = { id: "ytPlayer" };
   swfobject.embedSWF("http://www.youtube.com/v/" + videoID +
    "?version=3&enablejsapi=1&playerapiid=player1",
-   "videoDiv", "640", "360", "9", null, null, params, atts);
+   "videoPlayer", "960", "540", "9", null, null, params, atts);
 }
 
 function _run(videoId) {
@@ -25,8 +25,8 @@ function _run(videoId) {
 }
 
 $(document).ready(function(){
-  $("#videoDiv").hide();
 
+  $("#videoPlayer").hide();
   $("#start").on("click", function(e){
     e.preventDefault();
     $("#start").fadeOut();
@@ -53,7 +53,8 @@ $(document).ready(function(){
       method: "GET",
       dataType: "json"
     }).done(function( response ) {
-      loadVideo(response.url);
+
+      loadVideo(response.url.youtube_url);
     }).fail(function( response ){
       console.log("Not today!");
     });
