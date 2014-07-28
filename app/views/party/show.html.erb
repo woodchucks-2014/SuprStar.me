@@ -21,6 +21,11 @@
 
 <h3>Songlist</h3>
 <div id="songlist">
-  
-
+  <ul class="queue">
+    <% @queue.each do |song| %>
+    <li>
+      <%= song[:name] %>
+    </li>
+    <% end %>
+  </ul>
 </div>

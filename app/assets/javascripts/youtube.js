@@ -26,6 +26,7 @@ function _run(videoId) {
 
 $(document).ready(function(){
   $("#videoDiv").hide();
+
   $("#start").on("click", function(e){
     e.preventDefault();
     $("#start").fadeOut();
@@ -35,8 +36,7 @@ $(document).ready(function(){
       dataType: "json"
     });
     get_first_video.success(function(response){
-    _run(response.url.youtube_url); //video id here
-      console.log("success bitch!");
+    _run(response.url.youtube_url);
       console.log(response);
       $("#videoDiv").slideDown();
     });
