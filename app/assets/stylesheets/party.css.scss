@@ -6,7 +6,8 @@
     height: 100%;
     width:100%;
     text-align:center;
-    background: url('Microphoneflipped.jpg') no-repeat center;
+    // background: url('Microphoneflipped.jpg') no-repeat center;
+    background: url('http://cdn.desktopwallpapers4.me/wallpapers/music/1920x1200/1/6780-microphone-1920x1200-music-wallpaper.jpg') no-repeat center;
     background-size:cover;
     position: fixed;
     left:0;
@@ -22,15 +23,18 @@ h1 {
   position: relative;
   align:right;
   margin-top: 0;
+  padding-right: 5%;
   clear:both;
   // position: fixed;
 
 }
-
+// div {
+//   background-color:white;
+// }
 #create_party {
   font-size: 4vw;
-  border: 20px solid white;
-  color:white;
+  // border: 10px solid white;
+  color:gray;
   font-weight: bold;
   text-align: center;
   margin-top: 25%;
@@ -38,10 +42,18 @@ h1 {
   margin-left:auto;
   margin-right:auto;
   margin-left: 60%;
-  // margin-bottom: 50%;
+}
 
-  // input:not([type=submit]):not([type=file])  {
-  //   border: 10px solid white;
-  // }
+#partyForm{
+  width: 30%;
+  margin: 0 auto;
+}
+form {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 2em;
+  color:white;
+}
 
+input {
+  border-radius: 50px;
 }
