@@ -27,7 +27,7 @@ class NotificationController < ApplicationController
 		case
 		when verification_text
 			text_body = text.body.split(",")
-			p text_body
+			text_body
   		hash_tag = text_body[0]
 			name = text_body[1]
 			title_artist = text_body[2]
@@ -66,7 +66,7 @@ class NotificationController < ApplicationController
 			song = Song.create(name: video[:title], user_id: user.id,
 												 party_id: user.party.id, youtube_url: video[:ytid])
 			party_queue = user.party.queue
-			party_queue << song
+			party_queue << song.serializable_hash
 			party.update(queue: party_queue)
 			send_sms(phone_number, get_ready_to_sing)
 		when user_not_verified
@@ -80,7 +80,7 @@ class NotificationController < ApplicationController
 			song = Song.create(name: video[:title], user_id: user.id,
 												 party_id: user.party.id, youtube_url: video[:ytid])
 			party_queue = user.party.queue
-			party_queue << song
+			party_queue << song.serializable_hash
 			party.update(queue: party_queue)
 			send_sms(phone_number, second_song)
 		else
