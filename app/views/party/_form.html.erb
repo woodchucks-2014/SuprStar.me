@@ -1,6 +1,9 @@
 <%= form_for :party, url: party_index_path do |p| %>
 
+
+
 <%= p.label :hash_tag %><br>
+
 <%= p.text_field :hash_tag %>
 
 <%= fields_for @user do |u| %>
@@ -16,6 +19,7 @@
 <%= s.label :first_song %><br>
 <%= s.text_field :name %>
 <% end %>
+<br>
 <%= p.submit "Submit" %>
 
 <% end %>
