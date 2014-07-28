@@ -1,11 +1,12 @@
 class Party < ActiveRecord::Base
-  serialize :queue, Array
-  
+  serialize :queue
+
   has_many     :users
   has_many     :songs
   has_many 		 :comments
 
-  validates    :hash_tag, presence: true, uniqueness: true
+  validate    :hash_tag, presence: true
+  # validates_uniqueness_of :hash_tag
   #validates    :queue
 
 end
