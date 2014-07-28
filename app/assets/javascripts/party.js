@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
   $("#partyForm").hide();
   $("#toForm").on("click", function(e){
