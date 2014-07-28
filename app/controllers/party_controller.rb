@@ -32,7 +32,7 @@ class PartyController < ApplicationController
   end
 
   def retrieve_video_id
-    p @party = session[:party_id] #where to find id?
+    p @party = Party.find_by_id(session[:party_id]) #where to find id?
     p @queue = @party.queue
     p @current_video = @queue.shift
     @party.update(queue: @queue)
