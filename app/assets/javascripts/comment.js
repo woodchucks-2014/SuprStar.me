@@ -38,14 +38,16 @@ function updateLists () {
   });
 
   updateQueue.done(function(response){
-    console.log("success");
-    console.log(response.queue);
-
     // Primary Focus: iterating through queue and appending new li's if they exist
 
     for (var i=0; i < response.queue.length; i++) {
-      if (response.queue[i] !== null) {
-        $('.queue').append('<li>' + response.queue[i].name + '</li>');
+      var comment = '<li>' + response.queue[i].name + '</li>';
+      // console.log($('.queue li:last-child').html() !== response.queue[i].name);
+      console.log($('.queue li:contains("'+ response.queue[i].name +'")').length);
+      // console.log($('li[value="'+ response.queue[i].name + '"]').length);
+      console.log(response.queue[i].name === $('.queue').find('li[value="'+ response.queue[i].name + '"]'));
+      if ($('.queue li:contains("'+ response.queue[i].name +'")').length < 1) {
+        $('.queue').append(comment);
       }
     }
   });
