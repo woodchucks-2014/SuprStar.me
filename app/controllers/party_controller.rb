@@ -9,19 +9,14 @@ class PartyController < ApplicationController
   end
 
   def show
-    @party = Party.find(session[:party_id])
+    @party = Party.find_by_id(1)
     @comments = @party.comments
-  end
-
-  def new
-    @party = Party.new
-    @user = User.new
-    @song = Song.new
   end
 
   def create
     @party = Party.new(party_params)
     @user = User.new(user_params)
+    @song = Song.new
     if @party.save && @user.save
       session[:party_id] = @party.id
       first = find(first_song[:name])
@@ -32,12 +27,12 @@ class PartyController < ApplicationController
       redirect_to retrieve_party_path
     else
       flash[:notice] = "Something went wrong, please try again."
-      render 'new'
+      render 'index'
     end
   end
 
   def retrieve_video_id
-    @party = Party.find_by_id(session[:party_id]) #where to find id?
+    p @party = Party.find_by_id(1) #where to find id?
     p @queue = @party.queue
     p @current_video = @queue.shift
     @party.update(queue: @queue)
