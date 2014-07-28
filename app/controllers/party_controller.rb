@@ -17,11 +17,15 @@ class PartyController < ApplicationController
   def create
     @party = Party.new(party_params)
     @user = User.new(user_params)
-    @song = Song.new
+    @song = Song.new(first_song)
     if @party.save && @user.save
+      @user.update(phone_number: "+1" + @user.phone_number)
       session[:party_id] = @party.id
-      first = find(first_song[:name])
-      @song = Song.create(youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id, name: first[:title])
+      p "-"* 100
+      p first = find(first_song[:name])
+      p first[:title]
+      p @song = Song.create(name: first[:title], youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id)
+      p "-"* 100
       @party.queue = []
       @queue = @party.queue << @song.serializable_hash
       @party.update(queue: @queue)
