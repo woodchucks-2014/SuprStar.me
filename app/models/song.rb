@@ -10,7 +10,7 @@ class Song < ActiveRecord::Base
   belongs_to  :user
   belongs_to  :party
 
-  validates    :name, presence: true, message: "Please enter in a song to continue"
+  validates    :name, :presence => {:message => "Please enter in a song to continue" }
   # validates    :youtube_url, presence: true
   # validates    :lyrics
 
