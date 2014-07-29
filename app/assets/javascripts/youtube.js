@@ -23,7 +23,7 @@ var YouTube = {
     $.ajax({
       url: "/retrieve_video_id",
       method: "GET",
-      dataType: "jsonp",
+      dataType: "json",
       crossDomain: true
     }).success(function(response){
         _run(response.url.youtube_url);
