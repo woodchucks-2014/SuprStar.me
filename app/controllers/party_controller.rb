@@ -37,12 +37,12 @@ class PartyController < ApplicationController
     @current_video = @queue.shift
     @party.update(queue: @queue)
 
-    render json: {url: @current_video }
+    render json: {url: @current_video }.to_json
   end
 
   def retrieve_queue
     @queue = Party.find_by_id(session[:party_id]).queue
-    render json: {queue: @queue}
+    render json: {queue: @queue}.to_json
   end
 
   private
