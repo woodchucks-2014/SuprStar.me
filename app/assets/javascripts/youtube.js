@@ -23,7 +23,8 @@ var YouTube = {
     $.ajax({
       url: "/retrieve_video_id",
       method: "GET",
-      dataType: "json"
+      dataType: "json",
+      crossDomain: true
     }).success(function(response){
         _run(response.url.youtube_url);
         $("#videoDiv").slideDown();
@@ -36,7 +37,8 @@ var YouTube = {
     $.ajax({
       url: "/retrieve_video_id",
       method: "GET",
-      dataType: "json"
+      dataType: "json",
+      crossDomain: true
     }).success(function(response){
       console.log(response.url)
       YouTube.loadVideo(response.url.youtube_url);
