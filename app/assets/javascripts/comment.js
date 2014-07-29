@@ -1,13 +1,13 @@
 
 var seconds = function(date) {
-  new Date(date).getTime() / 1000;
+  return new Date(date).getTime() / 1000;
 }
 
 var Comment = {
   updateComments: function(){
     var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
-    if (latestCommentTime === undefined) {
-      var latestCommentTime = 0;
+    if (latestCommentTime.time === undefined) {
+      var latestCommentTime.time = 0;
     }
     console.log("!!!!!!!!!!!!!!!!!!");
     console.log(latestCommentTime);
