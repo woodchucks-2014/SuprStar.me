@@ -13,7 +13,7 @@ var YouTube = {
     }
   },
   loadPlayer: function(videoID) {
-    var params = { allowScriptAccess: "always"};
+    params = { allowScriptAccess: "always"};
     var atts = { id: "ytPlayer" };
     swfobject.embedSWF("http://www.youtube.com/v/" + videoID +
     "?version=3&enablejsapi=1&playerapiid=player1",
@@ -38,6 +38,7 @@ var YouTube = {
       method: "GET",
       dataType: "json"
     }).success(function(response){
+      console.log(response.url)
       YouTube.loadVideo(response.url.youtube_url);
     }).fail(function(response){
       console.log("Your video failed to load.");
