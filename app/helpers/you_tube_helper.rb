@@ -24,7 +24,7 @@ module YouTubeHelper
       :api_method => youtube.search.list,
       :parameters => {
         :part => 'snippet',
-        :q => song + " karaoke"
+        :q => song + " karaoke lyrics"
       }
       )
 
