@@ -26,7 +26,7 @@ var YouTube = {
       dataType: "jsonp",
       crossDomain: true
     }).success(function(response){
-        console.log(response);
+        console.log(song_object);
         _run(song_object.youtube_url);
         $("#videoDiv").slideDown();
       }).fail(function(response){
