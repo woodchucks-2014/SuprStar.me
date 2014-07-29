@@ -27,7 +27,7 @@ var YouTube = {
       crossDomain: true
     }).success(function(response){
         console.log(response);
-        _run(response.url.youtube_url);
+        _run(response.youtube_url);
         $("#videoDiv").slideDown();
       }).fail(function(response){
         console.log(response);
@@ -44,7 +44,7 @@ var YouTube = {
     }).success(function(response){
       console.log(response);
       console.log(response.url);
-      YouTube.loadVideo(response.url.youtube_url);
+      YouTube.loadVideo(response.youtube_url);
     }).fail(function(response){
       console.log(response);
       console.log("Your video failed to load.");
