@@ -37,10 +37,11 @@ var YouTube = {
     $.ajax({
       url: "/retrieve_video_id",
       method: "GET",
-      dataType: "jsonp",
+      dataType: "json",
       crossDomain: true
     }).success(function(response){
-      console.log(response.url)
+      console.log(response);
+      console.log(response.url);
       YouTube.loadVideo(response.url.youtube_url);
     }).fail(function(response){
       console.log("Your video failed to load.");
