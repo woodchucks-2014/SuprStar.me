@@ -27,7 +27,7 @@ var YouTube = {
       crossDomain: true
     }).success(function(response){
         console.log(song_object);
-        _run(song_object.youtube_url);
+        _run(song_object.url.youtube_url);
         $("#videoDiv").slideDown();
       }).fail(function(response){
         console.log(response);
