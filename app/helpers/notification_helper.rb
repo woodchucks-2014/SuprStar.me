@@ -7,14 +7,15 @@ module NotificationHelper
 
 	def send_sms(phone_number, body)
 		twilio_client.account.messages.create(
-			:from => '+18454434529',
+			:from => "+18454434529",
 			:to => phone_number,
 			:body => body
 			)
 	end
 
-	def get_sms
-		twilio_client.account.messages.list({:to => '+18454434529'}).first
+
+	def read_sms
+		twilio_client.account.messages.list({:to => "+18454434529"}).first
 	end
 
 	def read_sms

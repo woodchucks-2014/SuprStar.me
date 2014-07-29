@@ -12,5 +12,5 @@ class NotificationController < ApplicationController
 	def receive_sms
 		read_sms
 	end
-	
+
 end
