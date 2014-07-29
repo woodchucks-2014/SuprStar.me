@@ -16,17 +16,18 @@ class PartyController < ApplicationController
   def create
     @party = Party.new(party_params)
     @user = User.new(user_params)
-    @song = Song.new
+    @song = Song.new(first_song)
     if @party.save && @user.save
       session[:party_id] = @party.id
       first = find(first_song[:name])
-      @song = Song.create(youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id, name: first[:title])
+      @song = Song.create(name: first[:title], youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id)
       @party.queue = []
       @queue = @party.queue << @song.serializable_hash
       @party.update(queue: @queue)
       redirect_to retrieve_party_path
-    else
-      flash[:notice] = "Something went wrong, please try again."
+    elsif
+      flash[:notice] = @user.errors.messages
+      flash[:notice] = @party.errors.messages
       render 'index'
     end
   end
