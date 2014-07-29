@@ -49,7 +49,7 @@ var _runPolling = function() {
     Comment.updateComments();
     Comment.updateQueue(); 
     _runPolling();
-  }, 2500);
+  }, 5500);
 };
 
 $(document).ready(function(){
