@@ -10,7 +10,7 @@ class CommentController < ApplicationController
 			hash = {name: com.user.name, obj: com}
 			@new_comments << hash
 		end
-		render json: {content: @new_comments}
+		render json: {content: @new_comments}.to_json
 	end
 
 end

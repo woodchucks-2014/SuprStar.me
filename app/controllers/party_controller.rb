@@ -49,7 +49,7 @@ class PartyController < ApplicationController
 
   def retrieve_queue
     @queue = Party.find_by_id(session[:party_id]).queue
-    render json: {queue: @queue}
+    render json: {queue: @queue}.to_json
   end
 
   private
