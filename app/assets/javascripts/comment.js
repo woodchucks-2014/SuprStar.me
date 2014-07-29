@@ -6,15 +6,22 @@ var seconds = function(date) {
 var Comment = {
   updateComments: function(){
     var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
+    if (latestCommentTime === undefined) {
+      var latestCommentTime = 0;
+    }
+    console.log("!!!!!!!!!!!!!!!!!!");
+    console.log(latestCommentTime);
     $.ajax({
       url: "/retrieve_comments",
-      method: "GET",
+      method: "POST",
       data: latestCommentTime
     }).success(function(response){
       console.log("Successfully Got response (Comments)");
+      console.log(response);
       for (var i=0; i < response.content.length; i++) {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
+        console.log(time_in_seconds);
         if($(".comment li").size() >= 5) {
           $(".comment li:first-child").slideUp("slow").remove();
         }

@@ -16,15 +16,11 @@ class PartyController < ApplicationController
   def create
     @party = Party.new(party_params)
     @user = User.new(user_params)
-    @song = Song.new(first_song)
+    @song = Song.new
     if @party.save && @user.save
-      @user.update(phone_number: "+1" + @user.phone_number)
       session[:party_id] = @party.id
-      p "-"* 100
-      p first = find(first_song[:name])
-      p first[:title]
-      p @song = Song.create(name: first[:title], youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id)
-      p "-"* 100
+      first = find(first_song[:name])
+      @song = Song.create(youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id, name: first[:title])
       @party.queue = []
       @queue = @party.queue << @song.serializable_hash
       @party.update(queue: @queue)
@@ -41,10 +37,7 @@ class PartyController < ApplicationController
     @current_video = @queue.shift
     @party.update(queue: @queue)
 
-    render json: @current_video.to_json, :callback => params[:callback]
-    # response = params[:callback] + '(' + @current_video.to_json + ')'
-    # render :text => response 
-
+    render json: {url: @current_video }.to_json
   end
 
   def retrieve_queue
