@@ -1,12 +1,12 @@
 var _run = function(videoId) {
   YouTube.loadPlayer(videoId);
 }
+var onYouTubePlayerReady = function(playerId) {
+    ytplayer = document.getElementById("ytPlayer");
+    ytplayer.addEventListener("onError", "onPlayerError");
+  };
 
 var YouTube = {
-  onYouTubePlayerReady: function(playerId) {
-     var ytplayer = document.getElementById("ytPlayer");
-    ytplayer.addEventListener("onError", "onPlayerError");
-  },
   loadVideo: function(videoId) {
     if (ytplayer) {
       ytplayer.loadVideoById(videoID);
