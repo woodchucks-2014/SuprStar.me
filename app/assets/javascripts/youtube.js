@@ -23,7 +23,7 @@ var YouTube = {
     $.ajax({
       url: "/retrieve_video_id",
       method: "GET",
-      dataType: "html",
+      dataType: "json",
       crossDomain: true
     }).success(function(response){
         console.log(response);
@@ -39,7 +39,7 @@ var YouTube = {
     $.ajax({
       url: "/retrieve_video_id",
       method: "GET",
-      dataType: "html",
+      dataType: "json",
       crossDomain: true
     }).success(function(response){
       console.log(response);
