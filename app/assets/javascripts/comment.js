@@ -1,34 +1,31 @@
 
 var seconds = function(date) {
-  return new Date(date).getTime() / 1000;
+  new Date(date).getTime() / 1000;
 }
 
 var Comment = {
   updateComments: function(){
     var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
+
     if (latestCommentTime.time === undefined) {
       var latestCommentTime = {time: 0};
     }
-    console.log("!!!!!!!!!!!!!!!!!!");
-    console.log(latestCommentTime);
+
     $.ajax({
       url: "/retrieve_comments",
       method: "POST",
       data: latestCommentTime
     }).success(function(response){
-      console.log("Successfully Got response (Comments)");
-      console.log(response);
       for (var i=0; i < response.content.length; i++) {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
-        console.log(time_in_seconds);
         if($(".comment li").size() >= 5) {
           $(".comment li:first-child").slideUp("slow").remove();
         }
-        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>').fadeIn();
+        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>').hide().fadeIn(1000);
       };
     }).fail(function(response){
-      console.log("No Comments yet");
+      console.log("Either the UL does not contain comments or there is an error with your aJax request.");
     });
   },
 
@@ -37,7 +34,6 @@ var Comment = {
       url: "/retrieve_queue",
       method: "GET"
     }).success(function(response){
-      console.log("Successfully Got response (queue");
       for (var i=0; i < response.queue.length; i++) {
         var comment = '<li>' + response.queue[i].name + '</li>';
         if ($('.queue li:contains("'+ response.queue[i].name +'")').length < 1) {
@@ -45,22 +41,21 @@ var Comment = {
         }
       }
     }).fail(function(response){
-      console.log("FAILED updateQueue");
+      console.log("FAILED to updateQueue");
     });
   }
 };
 
 var _runPolling = function() {
   setTimeout(function(){
-    console.log("polling");
     Comment.updateComments();
-    Comment.updateQueue(); 
+    Comment.updateQueue();
     _runPolling();
-  }, 5500);
+  }, 5000);
 };
 
 $(document).ready(function(){
-  _runPolling();
-  // setTimeout(Comment.updateComments, 5000);
-  // setTimeout(Comment.updateQueue(), 5000);
+  $("start").click(function(){
+    _runPolling();
+  });
 });

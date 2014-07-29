@@ -12,6 +12,7 @@ var YouTube = {
       ytplayer.loadVideoById(videoId);
     }
   },
+
   loadPlayer: function(videoID) {
     params = { allowScriptAccess: "always"};
     var atts = { id: "ytPlayer" };
@@ -19,6 +20,7 @@ var YouTube = {
     "?version=3&enablejsapi=1&playerapiid=player1",
     "videoPlayer", "960", "540", "9", null, null, params, atts);
   },
+
   get_first_video: function() {
     $.ajax({
       url: "/retrieve_video_id",
@@ -26,11 +28,9 @@ var YouTube = {
       dataType: "jsonp",
       crossDomain: true
     }).success(function(response){
-        console.log(song_object);
         _run(song_object.url.youtube_url);
         $("#videoDiv").slideDown();
       }).fail(function(response){
-        console.log(response);
         console.log("Video Failed To Load");
     });
   },
@@ -41,11 +41,8 @@ var YouTube = {
       method: "GET",
       dataType: "json"
     }).success(function(response){
-      console.log("GOT NEXT VIDEO");
-      console.log(response);
       YouTube.loadVideo(response.url.youtube_url);
     }).fail(function(response){
-      console.log(response);
       console.log("Your video failed to load.");
     });
   }
@@ -53,12 +50,14 @@ var YouTube = {
 
 $(document).ready(function(){
   $("#videoPlayer").hide();
-  $("#start").on("click", function(e){
+  $("#start").click(function(e){
     e.preventDefault();
     $("#start").fadeOut();
     YouTube.get_first_video();
+    $("#videoPlayer").slideDown();
   });
-  $("#next").on("click", function(e){
+
+  $("#next").click(function(e){
     e.preventDefault();
     YouTube.get_next_video();
   });

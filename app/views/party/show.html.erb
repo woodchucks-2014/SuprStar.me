@@ -1,11 +1,10 @@
 <body class="show">
 
-<div id="container">
+  <div id="container">
 
   <div class="videoContainer">
     <div id="videoPlayer"></div>
-    <button class="button" id="start">Start!</button>
-    <br>
+    <button class="button" id="start">Start!</button> <br>
     <button class="button" id="next">Next Star!</button>
   </div>
 
@@ -14,25 +13,27 @@
     <div id="comments">
       <h2>Comments</h2>
       <ul class="comment">
-      <% if @comments %>
-        <% @comments.each do |comment| %>
-        <li  data-time="<%= comment.created_at.to_i%>">
-          <%= comment.user %> says <%= comment.content %> </li>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+            <li  data-time="<%= comment.created_at.to_i%>">
+            <%= comment.user %> says <%= comment.content %> </li>
+          <% end %>
         <% end %>
-      <% end %>
       </ul>
-    </div>
+  </div>
 
 
-<h3>Songlist</h3>
-<div id="songlist">
-  <ul class="queue">
-    <% @queue.each do |song| %>
-    <li>
-      <%= song[:name] %>
-    </li>
-    <% end %>
-  </ul>
-</div>
+  <h3>Songlist</h3>
+  <div id="songlist">
+    <ul class="queue">
+      <% @queue.each do |song| %>
+      <li>
+        <%= song[:name] %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  </div>
 
 </body>
