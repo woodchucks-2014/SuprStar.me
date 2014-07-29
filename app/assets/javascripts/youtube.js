@@ -24,7 +24,7 @@ var YouTube = {
       url: "/retrieve_video_id",
       method: "GET",
       dataType: "jsonp",
-      // crossDomain: true
+      crossDomain: true
     }).success(function(response){
         console.log(response);
         _run(response.url.youtube_url);
@@ -40,7 +40,7 @@ var YouTube = {
       url: "/retrieve_video_id",
       method: "GET",
       dataType: "jsonp",
-      // crossDomain: true
+      crossDomain: true
     }).success(function(response){
       console.log(response);
       console.log(response.url);
