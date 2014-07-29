@@ -9,7 +9,7 @@ var onYouTubePlayerReady = function(playerId) {
 var YouTube = {
   loadVideo: function(videoId) {
     if (ytplayer) {
-      ytplayer.loadVideoById(videoID);
+      ytplayer.loadVideoById(videoId);
     }
   },
   loadPlayer: function(videoID) {
