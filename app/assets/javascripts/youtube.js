@@ -24,11 +24,13 @@ var YouTube = {
       url: "/retrieve_video_id",
       method: "GET",
       dataType: "json",
-      crossDomain: true
+      // crossDomain: true
     }).success(function(response){
+        console.log(response);
         _run(response.url.youtube_url);
         $("#videoDiv").slideDown();
       }).fail(function(response){
+        console.log(response);
         console.log("Video Failed To Load");
     });
   },
@@ -38,12 +40,13 @@ var YouTube = {
       url: "/retrieve_video_id",
       method: "GET",
       dataType: "json",
-      crossDomain: true
+      // crossDomain: true
     }).success(function(response){
       console.log(response);
       console.log(response.url);
       YouTube.loadVideo(response.url.youtube_url);
     }).fail(function(response){
+      console.log(response);
       console.log("Your video failed to load.");
     });
   }
