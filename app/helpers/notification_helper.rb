@@ -1,7 +1,7 @@
 module NotificationHelper
 	def twilio_client
-    twilio_token = "a548aad83f1af5ffe9d217904f4ab5f0"
-    twilio_sid = "ACbc2cca55c5535fedc04a68a5f5d6da96"
+    twilio_token = ENV["TWILIO_API_KEY"]
+    twilio_sid = ENV["TWILIO_ACC_SID"]
     client = Twilio::REST::Client.new twilio_sid, twilio_token
 	end
 
