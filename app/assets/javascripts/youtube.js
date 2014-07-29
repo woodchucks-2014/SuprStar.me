@@ -44,7 +44,7 @@ var YouTube = {
     }).success(function(response){
       console.log("GOT NEXT VIDEO");
       console.log(response);
-      YouTube.loadVideo(response.youtube_url);
+      YouTube.loadVideo(response.url.youtube_url);
     }).fail(function(response){
       console.log(response);
       console.log("Your video failed to load.");
