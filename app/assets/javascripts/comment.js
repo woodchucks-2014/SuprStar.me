@@ -7,7 +7,7 @@ var Comment = {
   updateComments: function(){
     var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
     if (latestCommentTime.time === undefined) {
-      var latestCommentTime.time = 0;
+      var latestCommentTime = {time: 0};
     }
     console.log("!!!!!!!!!!!!!!!!!!");
     console.log(latestCommentTime);
