@@ -37,10 +37,9 @@ var YouTube = {
 
   get_next_video: function() {
     $.ajax({
-      url: "/retrieve_video_id",
+      url: "/retrieve_next_video_id",
       method: "GET",
-      dataType: "json",
-      crossDomain: true
+      dataType: "json"
     }).success(function(response){
       console.log("GOT NEXT VIDEO");
       console.log(response);

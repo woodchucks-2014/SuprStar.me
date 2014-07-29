@@ -41,6 +41,15 @@ class PartyController < ApplicationController
     render json: {url: @current_video }.to_json, :callback => params[:callback]
   end
 
+   def retrieve_next_video_id
+    @party = Party.find_by_id(session[:party_id]) #where to find id?
+    @queue = @party.queue
+    @current_video = @queue.shift
+    @party.update(queue: @queue)
+
+    render json: {url: @current_video }.to_json
+  end
+
   def retrieve_queue
     @queue = Party.find_by_id(session[:party_id]).queue
     render json: {queue: @queue}.to_json
