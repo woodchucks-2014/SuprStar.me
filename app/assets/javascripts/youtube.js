@@ -43,8 +43,7 @@ var YouTube = {
       crossDomain: true
     }).success(function(response){
       console.log(response);
-      console.log(response.url);
-      YouTube.loadVideo(song_object.youtube_url);
+      YouTube.loadVideo(response.youtube_url);
     }).fail(function(response){
       console.log(response);
       console.log("Your video failed to load.");
