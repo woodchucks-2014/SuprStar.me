@@ -27,7 +27,7 @@ var YouTube = {
       crossDomain: true
     }).success(function(response){
         console.log(response);
-        _run(song_object.youtube_url);
+        _run(response.youtube_url);
         $("#videoDiv").slideDown();
       }).fail(function(response){
         console.log(response);
@@ -39,9 +39,10 @@ var YouTube = {
     $.ajax({
       url: "/retrieve_video_id",
       method: "GET",
-      dataType: "jsonp",
+      dataType: "json",
       crossDomain: true
     }).success(function(response){
+      console.log("GOT NEXT VIDEO");
       console.log(response);
       YouTube.loadVideo(response.youtube_url);
     }).fail(function(response){

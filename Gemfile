@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
-
+gem 'dotenv'
 gem 'rack-jsonp-middleware',
 :require => 'rack/jsonp'
 
