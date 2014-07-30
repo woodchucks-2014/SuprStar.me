@@ -42,7 +42,7 @@ module NotificationHelper
 			party = Party.find_by_hash_tag(hash_tag)
 			p party
 		when new_song_text
-			song_info = text_body[1..text_body.length]
+			song_info = text_body.slice!(0)
 			party = user.party
 		when comment_text
 			comment = text_body
@@ -78,10 +78,8 @@ module NotificationHelper
 		when user_not_verified
 			send_sms(phone_number, check_format_for_hashtag)
 		when user_comment
-			text_body = text_body[1..text_body.length]
-			p text_body
 			send_sms(phone_number, be_nice)
-			Comment.create(content: text_body, user_id: user.id, party_id: user.party.id)
+			Comment.create(content: text_body.slice!(0), user_id: user.id, party_id: user.party.id)
 		when user_sing_again
 			video = find(song_info)
 			p video[:title]
