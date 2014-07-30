@@ -37,7 +37,7 @@
           <% if @comments %>
           <% @comments.each do |comment| %>
           <li  data-time="<%= comment.created_at.to_i%>">
-            <%= comment.user %> says <%= comment.content %> </li>
+            <%= comment.user.name %> says <%= comment.content %> </li>
           <% end %>
           <% end %>
           </ul>
