@@ -24,12 +24,10 @@
   <div class="navbar-header">
     <h1>SuperStar Me</h1>
   </div>
-i
+
   <div class="navbar-contact-info">
     <ul class="nav navbar-nav">
-    <li> Text: 1-845-443-4529 </li><br>
     <% if current_party %>
-      <li><%= @party.hash_tag%></li>
       <%= link_to signout_path, id: "sign_out" do %>
       <li>End Party?</li>
       <% end %>

@@ -9,7 +9,7 @@ class PartyController < ApplicationController
 
   def show
     @party = Party.find(session[:party_id])
-    @comments = @party.comments
+    p @comments = @party.comments
     @queue = @queue = @party.queue
   end
 
@@ -19,8 +19,10 @@ class PartyController < ApplicationController
     @song = Song.new(first_song)
     if @party.save && @user.save
       session[:party_id] = @party.id
-      first_song = find(first_song[:name])
-      @song = Song.create(name: first_song[:title], youtube_url: first_song[:ytid], user_id: @user.id, party_id: @party.id)
+      init_song = find(first_song[:name])
+      p "*" * 50
+      @song = Song.create(name: init_song[:title], youtube_url: init_song[:ytid], user_id: @user.id, party_id: @party.id)
+      @party.queue = []
       @queue = @party.queue << @song.serializable_hash
       @party.update(queue: @queue)
       redirect_to retrieve_party_path
