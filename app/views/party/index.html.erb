@@ -1,0 +1,15 @@
+<!-- <header><h1>SuprStar Me</h1></header> -->
+<div class="home">
+
+  <div id="create_party">
+    <button class="button" id="toForm">Create Party</button>
+    <% if flash.now[:notice] %>
+    <p class='error' style="font-size:15px;"><%=h flash[:notice] %></p>
+    <% end %>
+  </div>
+
+  <div id="partyForm">
+      <%= render 'form' %>
+  </div>
+
+</div>

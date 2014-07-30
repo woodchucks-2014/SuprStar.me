@@ -1,0 +1,137 @@
+// Place all the styles related to the party controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.home {
+    z-index: -9000;
+    height: 100%;
+    width:100%;
+    text-align:center;
+    // background: url('Microphoneflipped.jpg') no-repeat center;
+    background: url('http://cdn.desktopwallpapers4.me/wallpapers/music/1920x1200/1/6780-microphone-1920x1200-music-wallpaper.jpg') no-repeat center;
+    background-size:cover;
+    position: fixed;
+    left:0;
+    top: 0;
+    overflow: hidden;
+
+    }
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  font-size: 8.5vw;
+  float: right;
+  position: relative;
+  align:right;
+  margin-top: 0;
+  padding-right: 5%;
+  clear:both;
+  // position: fixed;
+
+}
+
+.error {
+  color:red;
+}
+
+.home .button {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  text-shadow: 0px 0px 0px #666666;
+  color: #ffffff;
+  font-size: 31px;
+  background: #666666;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.home .button:hover  {
+  background: #97a0a6;
+  text-decoration: none;
+}
+
+
+#create_party {
+  font-size: 4vw;
+  // border: 10px solid white;
+  color:gray;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 25%;
+  width:20%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-left: 60%;
+}
+
+#partyForm{
+  width: 30%;
+  margin: 0 auto;
+}
+form {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 2em;
+  color:white;
+}
+
+input {
+  border-radius: 50px;
+}
+
+// SHOW PAGE
+
+.show #container {
+  width: 100%;
+  display: inline-block;
+  // background-color:black;
+}
+.show .videoContainer {
+  margin: 0 auto;
+  height: 50%;
+  // background-color: red;
+}
+
+.show #videoPlayer{
+  left: 0;
+}
+
+.show {
+    color: white;
+    z-index: -9000;
+    height: 100%;
+    width:100%;
+    text-align:center;
+    background: url('http://p1.pichost.me/i/39/1618073.jpg') no-repeat fixed center;
+    background-size: cover;
+    position: fixed;
+    left:0;
+    top: 0;
+    overflow: hidden;
+}
+
+.show #right_side {
+  // display: inline-block;
+}
+
+.show .videoContainer {
+  padding-top: 100px;
+}
+
+.show #comments {
+  // background-color:yellow;
+  background-color: rgba(200, 54, 54, 0.5);
+  height: 400px;
+  width: 50%;
+  float: left;
+}
+
+.show #songlist {
+  // background-color: blue;
+  height: 400px;
+  width: 50%;
+  float: right;
+
+}
