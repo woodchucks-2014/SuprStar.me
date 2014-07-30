@@ -24,7 +24,7 @@
         <h2>Songlist</h2>
         <ul class="queue">
           <% @queue.each do |song| %>
-          <li>
+          <li id="#{sond.id}">
             <%= song[:name] %>
           </li>
           <% end %>
