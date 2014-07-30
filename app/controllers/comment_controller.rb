@@ -8,7 +8,7 @@ class CommentController < ApplicationController
 		  new_comments = []
 		  comments.each do |com|
 				hash = {name: com.user.name, obj: com}
-				@new_comments << hash
+				new_comments << hash
 			end
 		render json: {content: @new_comments}.to_json
 	end
