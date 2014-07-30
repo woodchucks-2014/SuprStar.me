@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'retrieve_video_id' => "party#retrieve_video_id"
   post 'retrieve_video_id' => "party#retrieve_video_id"
 
+  get 'about_us' => "party#about_us"
+  get 'instructions' => "party#instructions"
 
   get 'retrieve_next_video_id' => "party#retrieve_next_video_id"
 

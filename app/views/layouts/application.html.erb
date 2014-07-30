@@ -31,6 +31,10 @@
       <%= link_to signout_path, id: "sign_out" do %>
       <li>End Party?</li>
       <% end %>
+      <% else %>
+      <li class=""><%= link_to "About", about_us_path %></li>
+      <!-- <li class="">Blog</li> -->
+      <li class=""><%= link_to "Instructions", instructions_path %></li>
     <% end %>
   </ul>
   </div>
@@ -38,9 +42,6 @@
 
   <div class="navbar-li">
     <ul class="nav navbar-nav pull-right">
-      <li class="">About</li>
-      <!-- <li class="">Blog</li> -->
-      <li class="">Instructions</li>
     </ul>
   </div>
 </nav>

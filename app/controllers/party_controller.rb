@@ -8,6 +8,12 @@ class PartyController < ApplicationController
     @song = Song.new
   end
 
+  def about
+  end
+
+  def instructions
+  end
+
   def show
     @party = Party.find(session[:party_id])
     p @comments = @party.comments
