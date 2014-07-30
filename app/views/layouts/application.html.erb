@@ -27,16 +27,20 @@
 
   <div class="navbar-contact-info">
     <ul class="nav navbar-nav">
-    <li> Text: 1-845-443-4529 </li><br>
-    <!-- <li> PUT HASHTAG HERE </li> -->
+    <% if current_party %>
+      <%= link_to signout_path, id: "sign_out" do %>
+      <li>End Party?</li>
+      <% end %>
+    <% end %>
   </ul>
   </div>
+
 
   <div class="navbar-li">
     <ul class="nav navbar-nav pull-right">
       <li class="">About</li>
-      <li class="">Blog</li>
-      <li class="">Team</li>
+      <!-- <li class="">Blog</li> -->
+      <li class="">Instructions</li>
     </ul>
   </div>
 </nav>
