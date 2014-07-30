@@ -20,9 +20,12 @@ var Comment = {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
         if($(".comment li").size() >= 5) {
+          console.log($(".comment li").size());
+          console.log(response.constent[i].obj);
+          console.log(response.content[i].obj.content);
           $(".comment li:first-child").slideUp("slow").remove();
         }
-        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>').hide().fadeIn(1000);
+        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>');
       };
     }).fail(function(response){
       console.log("Either the UL does not contain comments or there is an error with your aJax request.");
@@ -56,7 +59,5 @@ var _runPolling = function() {
 };
 
 $(document).ready(function(){
-  $("start").click(function(){
     _runPolling();
-  });
 });
