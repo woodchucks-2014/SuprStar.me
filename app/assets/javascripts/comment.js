@@ -1,6 +1,6 @@
 
 var seconds = function(date) {
-  new Date(date).getTime() / 1000;
+ return new Date(date).getTime() / 1000;
 }
 
 var Comment = {
