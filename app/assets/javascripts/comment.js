@@ -7,7 +7,7 @@ var Comment = {
   updateComments: function(){
     var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
     console.log(latestCommentTime);
-    if (latestCommentTime === undefined) {
+    if (latestCommentTime.time === undefined) {
       var latestCommentTime = {time: 0};
     }
     console.log(latestCommentTime);
@@ -20,7 +20,7 @@ var Comment = {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
         console.log(time);
-        console.log(time_in_seconds);
+        console.log(time_in_seconds)
         if($(".comment li").size() >= 5) {
           $(".comment li:first-child").slideUp("slow").remove();
         }
