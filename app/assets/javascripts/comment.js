@@ -1,6 +1,6 @@
 
 var seconds = function(date) {
-  new Date(date).getTime() / 1000;
+ return new Date(date).getTime() / 1000;
 }
 
 var Comment = {
@@ -19,10 +19,9 @@ var Comment = {
       for (var i=0; i < response.content.length; i++) {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
+        console.log(time);
+        console.log(time_in_seconds)
         if($(".comment li").size() >= 5) {
-          console.log($(".comment li").size());
-          console.log(response.constent[i].obj);
-          console.log(response.content[i].obj.content);
           $(".comment li:first-child").slideUp("slow").remove();
         }
         $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>');
