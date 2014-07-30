@@ -23,10 +23,13 @@
       <div id="songlist">
         <h2>Songlist</h2>
         <ul class="queue">
+          <li>Trophies- Drake (Karaoke)</li>
+          <li>Underground Kings- Drake (Karaoke)</li>
+          <li>Poundcake- Drake (Karaoke)</li>
+          <li>Vertigo- U2 (Karaoke)</li>
+          <li>Without Me- Eminem (Karaoke)</li>
           <% @queue.each do |song| %>
-          <li id="#{sond.id}">
-            <%= song[:name] %>
-          </li>
+          <!-- <li id="#{sond.id}"> <%#= song[:name] %> </li> -->
           <% end %>
         </ul>
       </div>
@@ -40,6 +43,7 @@
             <%= comment.user.name %> says <%= comment.content %> </li>
           <% end %>
           <% end %>
+          <li> Kai says, "Welcome to SuperStar Me!"</li>
           </ul>
         </div>
       </div>

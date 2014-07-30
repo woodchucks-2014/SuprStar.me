@@ -85,10 +85,57 @@ input {
 
 // SHOW PAGE
 
+.show .queue{
+  padding: 0;
+  text-align: center;
+  overflow: auto;
+  list-style: none;
+}
+
+.show .queue li {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 auto;
+  // font-size: 25px;
+  font-size: 1.5vw;
+  // background-color: green;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+.show .queue li:first-child {
+  background-color: rgba(0, 128, 0, 0.5);
+  // color: ;
+}
+
+.show .queue li:nth-child(2) {
+  background-color: rgba(255, 0, 0, 0.5);
+  // color: ;
+}
+
+.show #comments {
+  height: 300px;
+}
+
+.show .comment {
+  padding: 0;
+  text-align: center;
+  overflow: auto;
+  list-style: none;
+}
+
+.show .comment li {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 auto;
+  font-size: 1.5vw;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
 .show #container {
   width: 100%;
   display: inline-block;
-  // background-color:black;
 }
 .show .videoContainer {
   margin: 0 auto;
@@ -143,7 +190,7 @@ input {
 
 #songlist {
 float: top;
-padding-bottom: 45%
+height: 360px;
 }
 
 #comments {
@@ -161,10 +208,10 @@ padding-bottom: 45%
 }
 
 .show #comments {
-  background-color:yellow;
-  background-color: rgba(200, 54, 54, 0.5);
+  border: 2px dotted red;
 }
 
 .show #songlist {
-  background-color: blue;
+  // background-color: blue;
+  border: 2px dotted white;
 }
