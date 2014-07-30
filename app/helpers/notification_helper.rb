@@ -67,8 +67,6 @@ module NotificationHelper
 		case
 		when all_parameters_met
 			video = find(title_artist)
-			p video
-			p party
 			user = User.create(name: name, phone_number: phone_number,
 												party_id: party.id)
 			song = Song.create(name: video[:title], user_id: user.id,
@@ -80,7 +78,7 @@ module NotificationHelper
 		when user_not_verified
 			send_sms(phone_number, check_format_for_hashtag)
 		when user_comment
-			text_body[1..text_body.length]
+			text_body = text_body[1..text_body.length]
 			send_sms(phone_number, be_nice)
 			Comment.create(content: text_body, user_id: user.id, party_id: user.party.id)
 		when user_sing_again
