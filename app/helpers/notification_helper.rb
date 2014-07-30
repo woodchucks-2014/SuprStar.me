@@ -81,7 +81,7 @@ module NotificationHelper
 			send_sms(phone_number, check_format_for_hashtag)
 		when user_comment
 			send_sms(phone_number, be_nice)
-			Comment.create(content: hash_tag, user_id: user.id, party_id: user.party.id)
+			Comment.create(content: text_body, user_id: user.id, party_id: user.party.id)
 		when user_sing_again
 			video = find(song_info)
 			p video[:title]
