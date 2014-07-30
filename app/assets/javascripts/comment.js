@@ -22,7 +22,9 @@ var Comment = {
         console.log(time);
         console.log(time_in_seconds)
         if($(".comment li").size() >= 5) {
-          $(".comment li:first-child").remove();
+          $(".comment li:first-child").slideUp("slow", function(){
+            $(".comment li:first-child").remove();
+          });
         }
         $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>');
       };
@@ -39,8 +41,13 @@ var Comment = {
       for (var i=0; i < response.queue.length; i++) {
         var song_title = response.queue[i].name;
         var comment = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
+        var appendComment = $('.queue').append(comment);
+
         if ($('.queue').find('li').attr("id", response.queue[i].id).size() < 1) {
-          $('.queue').append(comment);
+          if ($('.queue li').size() === 5) {
+          appendComment.hide();
+          }
+        appendComment;
         }
       }
     }).fail(function(response){

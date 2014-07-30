@@ -7,7 +7,7 @@
         <div class="videoContainer">
           <div id="videoPlayer"></div>
           <button class="button" id="start">Start!</button>
-          <button class="button" id="next">Next Star!</button>
+          <button class="button" id="next">Next!</button>
         </div>
     </div>
 
@@ -15,7 +15,7 @@
       <% if current_party %>
         <h2>Want to join?</h2>
         <h2 class="info_bar"> Text: <%= @party.hash_tag%> </h2>
-        <h3>to 1-845-443-4529</h3>
+        <h3>to 1-845-443-4529</h3><br>
       <% end %>
     </div>
 
@@ -23,10 +23,15 @@
       <div id="songlist">
         <h2>Songlist</h2>
         <ul class="queue">
+          <li>Trophies- Drake (Karaoke)</li>
+          <li>Underground Kings- Drake (Karaoke)</li>
+          <li>Poundcake- Drake (Karaoke)</li>
+          <li>Vertigo- U2 (Karaoke)</li>
+          <li>Without Me- Eminem (Karaoke)</li>
+          <li>Lose Yourself- Eminem (Karaoke)</li>
+          <li>Stan- Eminem (Karaoke)</li>
           <% @queue.each do |song| %>
-          <li id="#{sond.id}">
-            <%= song[:name] %>
-          </li>
+          <!-- <li id="#{sond.id}"> <%#= song[:name] %> </li> -->
           <% end %>
         </ul>
       </div>
@@ -40,6 +45,12 @@
             <%= comment.user.name %> says <%= comment.content %> </li>
           <% end %>
           <% end %>
+          <li> Kai says, "Welcome to SuperStar Me!"</li>
+          <li>Poundcake- Drake (Karaoke)</li>
+          <li>Vertigo- U2 (Karaoke)</li>
+          <li>Lose Yourself- Eminem (Karaoke)</li>
+          <li>Stan- Eminem (Karaoke)</li>
+
           </ul>
         </div>
       </div>
