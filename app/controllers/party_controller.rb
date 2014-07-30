@@ -9,7 +9,7 @@ class PartyController < ApplicationController
 
   def show
     @party = Party.find(session[:party_id])
-    @comments = @party.comments
+    p @comments = @party.comments
     @queue = @queue = @party.queue
   end
 
