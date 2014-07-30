@@ -38,6 +38,7 @@ class PartyController < ApplicationController
     render json: {url: @current_video }.to_json, :callback => params[:callback]
   end
 
+
   def retrieve_next_video_id
     find_video_helper(current_party)
     render json: {url: @current_video }.to_json
