@@ -27,8 +27,8 @@
 
   <div class="navbar-contact-info">
     <ul class="nav navbar-nav">
-    <li> Text: 1-845-443-4529 </li><br>
     <% if current_party %>
+      <li> Text: 1-845-443-4529 </li>
       <li><%= @party.hash_tag%></li>
       <%= link_to signout_path, id: "sign_out" do %>
       <li>End Party?</li>
