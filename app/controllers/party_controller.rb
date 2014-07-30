@@ -19,8 +19,8 @@ class PartyController < ApplicationController
     @song = Song.new(first_song)
     if @party.save && @user.save
       session[:party_id] = @party.id
-      first = find(first_song[:name])
-      @song = Song.create(name: first[:title], youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id)
+      first_song = find(first_song[:name])
+      @song = Song.create(name: first_song[:title], youtube_url: first_song[:ytid], user_id: @user.id, party_id: @party.id)
       @queue = @party.queue << @song.serializable_hash
       @party.update(queue: @queue)
       redirect_to retrieve_party_path
@@ -36,7 +36,7 @@ class PartyController < ApplicationController
     render json: {url: @current_video }.to_json, :callback => params[:callback]
   end
 
-   def retrieve_next_video_id
+  def retrieve_next_video_id
     find_video_helper(current_party)
     render json: {url: @current_video }.to_json
   end
