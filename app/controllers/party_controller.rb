@@ -1,5 +1,6 @@
 class PartyController < ApplicationController
   include YouTubeHelper
+  include PartyHelper
   respond_to :json
   def index
     @party = Party.new
