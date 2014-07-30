@@ -6,11 +6,11 @@ var seconds = function(date) {
 var Comment = {
   updateComments: function(){
     var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
-
+    console.log(latestCommentTime);
     if (latestCommentTime.time === undefined) {
       var latestCommentTime = {time: 0};
     }
-
+    console.log(latestCommentTime);
     $.ajax({
       url: "/retrieve_comments",
       method: "POST",
