@@ -41,13 +41,13 @@ var Comment = {
       for (var i=0; i < response.queue.length; i++) {
         var song_title = response.queue[i].name;
         var comment = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
-        var appendComment = $('.queue').append(comment);
-
+        console.log(comment);
+        console.log($('.queue').find('li').attr("id", response.queue[i].id).size());
         if ($('.queue').find('li').attr("id", response.queue[i].id).size() < 1) {
-          if ($('.queue li').size() === 5) {
-          appendComment.hide();
+          if ($('.queue li').size() >= 5) {
+          $('.queue').append(comment).hide();
           }
-        appendComment;
+          $('.queue').append(comment);
         }
       }
     }).fail(function(response){
