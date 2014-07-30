@@ -45,7 +45,4 @@ module YouTubeHelper
       return videos.first
     end
 
-    def add_song(song)
-    end
-
   end
