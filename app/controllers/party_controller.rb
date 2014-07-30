@@ -21,11 +21,10 @@ class PartyController < ApplicationController
       session[:party_id] = @party.id
       first = find(first_song[:name])
       @song = Song.create(name: first[:title], youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id)
-      @party.queue = []
       @queue = @party.queue << @song.serializable_hash
       @party.update(queue: @queue)
       redirect_to retrieve_party_path
-    elsif
+    else
       flash[:notice] = @user.errors.messages
       flash[:notice] = @party.errors.messages
       render 'index'
@@ -33,20 +32,12 @@ class PartyController < ApplicationController
   end
 
   def retrieve_video_id
-    @party = Party.find_by_id(session[:party_id]) #where to find id?
-    @queue = @party.queue
-    @current_video = @queue.shift
-    @party.update(queue: @queue)
-
+    find_video_helper(current_party)
     render json: {url: @current_video }.to_json, :callback => params[:callback]
   end
 
    def retrieve_next_video_id
-    @party = Party.find_by_id(session[:party_id]) #where to find id?
-    @queue = @party.queue
-    @current_video = @queue.shift
-    @party.update(queue: @queue)
-
+    find_video_helper(current_party)
     render json: {url: @current_video }.to_json
   end
 
@@ -55,7 +46,7 @@ class PartyController < ApplicationController
     render json: {queue: @queue}.to_json
   end
 
-  private
+private
   def party_params
     params.require(:party).permit(:hash_tag)
   end
