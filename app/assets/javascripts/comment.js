@@ -35,8 +35,9 @@ var Comment = {
       method: "GET"
     }).success(function(response){
       for (var i=0; i < response.queue.length; i++) {
-        var comment = '<li>' + response.queue[i].name + '</li>';
-        if ($('.queue li:contains("'+ response.queue[i].name +'")').length < 1) {
+        var song_title = response.queue[i].name;
+        var comment = '<li>' + song_title + '</li>';
+        if ($('.queue li:contains("'+ song_title +'")').length < 1) {
           $('.queue').append(comment);
         }
       }
