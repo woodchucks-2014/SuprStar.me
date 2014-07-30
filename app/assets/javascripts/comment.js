@@ -56,7 +56,7 @@ var _runPolling = function() {
 };
 
 $(document).ready(function(){
-  $("start").click(function(){
+  $("#start").click(function(){
     _runPolling();
   });
 });
