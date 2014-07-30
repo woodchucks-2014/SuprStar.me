@@ -24,7 +24,7 @@ module YouTubeHelper
       :api_method => youtube.search.list,
       :parameters => {
         :part => 'snippet',
-        :q => song + " karaoke"
+        :q => song + " karaoke lyrics"
       }
       )
 
@@ -43,9 +43,6 @@ module YouTubeHelper
       end
 
       return videos.first
-    end
-
-    def add_song(song)
     end
 
   end

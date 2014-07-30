@@ -1,58 +1,63 @@
-function seconds(datetime) {
-  return new Date(datetime).getTime() / 1000;
+
+var seconds = function(date) {
+  new Date(date).getTime() / 1000;
+}
+
+var Comment = {
+  updateComments: function(){
+    var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
+
+    if (latestCommentTime.time === undefined) {
+      var latestCommentTime = {time: 0};
+    }
+
+    $.ajax({
+      url: "/retrieve_comments",
+      method: "POST",
+      data: latestCommentTime
+    }).success(function(response){
+      for (var i=0; i < response.content.length; i++) {
+        var time = response.content[i].obj.created_at;
+        var time_in_seconds = seconds(time);
+        if($(".comment li").size() >= 5) {
+          console.log($(".comment li").size());
+          console.log(response.constent[i].obj);
+          console.log(response.content[i].obj.content);
+          $(".comment li:first-child").slideUp("slow").remove();
+        }
+        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>');
+      };
+    }).fail(function(response){
+      console.log("Either the UL does not contain comments or there is an error with your aJax request.");
+    });
+  },
+
+  updateQueue: function(){
+    $.ajax({
+      url: "/retrieve_queue",
+      method: "GET"
+    }).success(function(response){
+      for (var i=0; i < response.queue.length; i++) {
+        var song_title = response.queue[i].name;
+        var comment = '<li>' + song_title + '</li>';
+        if ($('.queue li:contains("'+ song_title +'")').length < 1) {
+          $('.queue').append(comment);
+        }
+      }
+    }).fail(function(response){
+      console.log("FAILED to updateQueue");
+    });
+  }
 };
 
-$(function(){
-  if ($("#comments").length > 0) {
-    setTimeout(updateLists, 5000);
-  };
+var _runPolling = function() {
+  setTimeout(function(){
+    Comment.updateComments();
+    Comment.updateQueue();
+    _runPolling();
+  }, 5000);
+};
+
+$(document).ready(function(){
+    _runPolling();
 });
-
-function updateLists () {
-
-  var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
-  var updateComment = $.ajax({
-    url: "/retrieve_comments",
-    method: "POST",
-    data: latestCommentTime
-  });
-  updateComment.done(function( response ) {
-    for (var i=0; i < response.content.length; i++) {
-      var time = response.content[i].obj.created_at;
-      var time_in_seconds = seconds(time);
-      if($("li").size() >= 5) {
-        $(".comment li:first-child").slideUp("slow").remove();
-        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name +'</li>').fadeIn();
-      } else {
-        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>').fadeIn();
-      }
-    };
-  });
-  updateComment.fail(function( response ){
-    console.log("No Comments yet");
-  });
-// <--------------------------------------------------->
-  var updateQueue = $.ajax({
-    url: "/retrieve_queue",
-    method: "GET"
-  });
-
-  updateQueue.done(function(response){
-    console.log("success");
-    console.log(response.queue);
-
-    // Primary Focus: iterating through queue and appending new li's if they exist
-
-    for (var i=0; i < response.queue.length; i++) {
-      if (response.queue[i] !== null) {
-        $('.queue').append('<li>' + response.queue[i].name + '</li>');
-      }
-    }
-  });
-
-  updateQueue.fail(function(response){
-    console.log("FAIL");
-  });
-
-  setTimeout(updateLists, 5000);
-}

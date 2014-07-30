@@ -5,6 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  function parseVideo (json) {
+    console.log(json);
+    song_object = json;
+  }
+  </script>
+  <script type="text/javascript" src="http://www.suprstar.me/retrieve_video_id.js?callback=parseVideo"></script>
+  <script type="text/javascript" src="http://agile-mesa-3662.herokuapp.com/retrieve_video_id.js?callback=parseVideo"></script>
   <script src="//www.google.com/jsapi" type="text/javascript"></script>
   <script type="text/javascript">google.load("swfobject", "2.1")</script>
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -17,11 +25,22 @@
     <h1>SuperStar Me</h1>
   </div>
 
+  <div class="navbar-contact-info">
+    <ul class="nav navbar-nav">
+    <% if current_party %>
+      <%= link_to signout_path, id: "sign_out" do %>
+      <li>End Party?</li>
+      <% end %>
+    <% end %>
+  </ul>
+  </div>
+
+
   <div class="navbar-li">
     <ul class="nav navbar-nav pull-right">
       <li class="">About</li>
-      <li class="">Blog</li>
-      <li class="">Team</li>
+      <!-- <li class="">Blog</li> -->
+      <li class="">Instructions</li>
     </ul>
   </div>
 </nav>
