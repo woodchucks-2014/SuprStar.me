@@ -43,13 +43,15 @@ var Comment = {
         var comment = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
         console.log(comment);
         console.log($('.queue').find('li').attr("id", response.queue[i].id).size());
-        if ($('.queue').find('li').attr("id", response.queue[i].id).size() < 1) {
+        if ($('.queue').find('li').attr("id", response.queue[i].id).size() === 0 ) {
           if ($('.queue li').size() >= 5) {
           $('.queue').append(comment).hide();
           }
           $('.queue').append(comment);
         }
       }
+    $(".queue li").hide(); //Called when new comment is added?
+    $(".queue li:lt(5)").show();
     }).fail(function(response){
       console.log("FAILED to updateQueue");
     });
