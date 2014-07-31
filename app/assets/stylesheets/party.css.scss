@@ -14,6 +14,17 @@
   overflow: hidden;
 }
 
+a:hover , a:link , a:visited{
+  color: white;
+}
+
+.welcome{
+  margin-top: 120px;
+  margin-bottom: 0px;
+  // text-align: center;
+  float: center;
+}
+
 h1 {
   font-family: 'Oswald', sans-serif;
   color: white;
@@ -54,11 +65,21 @@ h1 {
   margin: 0 auto;
 }
 
-.home .button:hover  {
-  background: #97a0a6;
-  text-decoration: none;
-}
+// .home .button:hover  {
+//   background: #97a0a6;
+//   text-decoration: none;
+// }
 
+input {
+  border: none;
+  text-shadow: 0px 0px 0px #666666;
+  color: #ffffff;
+  font-size: 31px;
+  background: #666666;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin: 0 auto;
+}
 
 .home #create_party {
   font-size: 4vw;
@@ -66,7 +87,7 @@ h1 {
   color:gray;
   font-weight: bold;
   text-align: center;
-  margin-top: 20%;
+  // margin-top: ;
   // width:20%;
   margin-left: 0 auto;
   margin-right: 0 auto;
@@ -76,18 +97,26 @@ h1 {
 #partyForm{
   margin: 0 auto;
 }
+
 form {
+  float: top;
   font-family: 'Droid Sans', sans-serif;
-  font-size: 2em;
-  color:white;
+  font-size: 1.6em;
+  color: white;
 }
 
-input {
+input #submit{
   // border-radius: 5px;
-  font-size: 18px;
-  padding: 8px 10px;
+  margin-top: 10px;
+  font-size: 1.8em;
+  padding: 10px 12px;
   height: 21px;
-  width: 377px;
+  width: 420px;
+}
+
+::-webkit-input-placeholder {
+   color: orange;
+   font-size: .7em;
 }
 
 /*// SHOW PAGE*/
