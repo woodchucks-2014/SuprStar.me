@@ -42,10 +42,10 @@ module NotificationHelper
 			party = Party.find_by_hash_tag(hash_tag)
 			p party
 		when new_song_text
-			song_info = text_body.slice!(0)
+			song_info = text_body[1..text_body.length]
 			party = user.party
 		when comment_text
-			comment = text_body
+			comment = text_body[1..text_body.length]
 		else
 			text_body
 		end

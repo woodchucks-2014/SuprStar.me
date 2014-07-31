@@ -126,17 +126,20 @@ input #submit{
   text-align: center;
   overflow: auto;
   list-style: none;
+  height: 380px;
 }
 
 .show .queue li {
   width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
   height: 60px;
   line-height: 60px;
-  margin: 0 auto;
-  // font-size: 25px;
   font-size: 1.5vw;
-  // background-color: green;
-  background-color: rgba(0, 0, 0, 0.2)
+  background-color: rgba(0, 0, 0, 0.2);
+  // animation: marquee 50s linear infinite;
 }
 
 // .show .queue li:first-child {
@@ -177,7 +180,7 @@ input #submit{
       margin: 0 auto;
       height: 50%;
       // background-color: red;
-      padding-bottom: 40%
+      // padding-bottom: 40%
     }
 
     .show #videoPlayer{
@@ -200,6 +203,10 @@ input #submit{
     .show #container {
       margin-top: 100px;
 
+    }
+
+    .show #joinText {
+      
     }
 
     .show #top_right_side {
@@ -226,12 +233,11 @@ input #submit{
 
     #songlist {
       float: top;
-      padding-bottom: 45%
+      height: 380px;
     }
 
     #comments {
       float: bottom;
-      padding-bottom: 45%
     }
 
     .show #left_side {

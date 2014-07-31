@@ -214,8 +214,8 @@ DEPENDENCIES
   alchemy-api-rb
   capybara
   coffee-rails (~> 4.0.0)
-  dotenv-rails
   dotenv
+  dotenv-rails
   factory_girl_rails
   google-api-client (> 0.7)
   jasmine

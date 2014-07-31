@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $("#partyForm").hide();
   $("#toForm").click(function(e){
     e.preventDefault();
@@ -6,9 +7,4 @@ $(document).ready(function(){
     $("#partyForm").fadeIn("slow");
   });
 
-
-
-$('.team-member').mouseover(function(){
-    $('this').effect("shake");
-});
 });
