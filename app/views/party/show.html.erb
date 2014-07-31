@@ -29,7 +29,7 @@
         <h2>Songlist</h2>
         <ul class="queue">
           <% @party.queue.each do |song| %>
-          <li id="#{song.id}"><%= song.name %></li>
+          <li id="#{song.id}"><%= song[:name] %></li>
           <% end %>
         </ul>
       </div>
