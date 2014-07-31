@@ -38,9 +38,10 @@ var Comment = {
       url: "/retrieve_queue",
       method: "GET"
     }).success(function(response){
+      console.log(response);
       for (var i=0; i < response.queue.length; i++) {
         var song_title = response.queue[i].name;
-
+        console.log(response.queue[i]);
         if ($('.queue').find('li').attr("id", response.queue[i].id).size() < 1) {
           var comment = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
           // if ($('.queue li').size() > 5) {
