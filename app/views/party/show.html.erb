@@ -37,7 +37,7 @@
       <div id="comments">
         <h2>Comments</h2>
         <ul class="comment">
-          <% if @comments %>
+          <% if @comments.size > 0 %>
           <% @comments.each do |comment| %>
           <li  data-time="<%= comment.created_at.to_i%>">
             <%= comment.user.name %> says <%= comment.content %></li>
