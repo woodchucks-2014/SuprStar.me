@@ -13,7 +13,7 @@ var Comment = {
     console.log(latestCommentTime);
     $.ajax({
       url: "/retrieve_comments",
-      method: "GET",
+      method: "POST",
       data: latestCommentTime
     }).success(function(response){
       console.log(response.content);
