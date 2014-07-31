@@ -42,14 +42,15 @@ var Comment = {
       for (var i=0; i < response.queue.length; i++) {
         var song_title = response.queue[i].name;
         console.log(response.queue[i]);
-        if ($('.queue').find('li').attr("id", response.queue[i].id).size() < 1) {
-          var comment = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
-          // if ($('.queue li').size() > 5) {
+        var comment = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
+        var sameId = $('.queue').find('li').attr("id", response.queue[i].id).size();
+        console.log(sameId);
+        if ( sameId < 1) {
+          if ($('.queue li').size() > 5) {
+            console.log("less than 5");
             // appendComment.hide();
-          // } else {
-            $('.queue').append(comment);
-            // appendComment;
-          // }
+          }
+          $(".queue").append(comment);
         }
       }
     $(".queue li").hide(); //Called when new comment is added?
