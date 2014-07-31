@@ -1,8 +1,14 @@
 $(document).ready(function(){
   $("#partyForm").hide();
-  $("#toForm").on("click", function(e){
+  $("#toForm").click(function(e){
     e.preventDefault();
     $("#toForm").hide();
     $("#partyForm").fadeIn("slow");
   });
+
+
+
+$('.team-member').mouseover(function(){
+    $('this').effect("shake");
+});
 });

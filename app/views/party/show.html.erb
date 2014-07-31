@@ -1,38 +1,50 @@
 <body class="show">
 
-<div id="container">
 
-  <div class="videoContainer">
-    <div id="videoPlayer"></div>
-    <button class="button" id="start">Start!</button>
-    <br>
-    <button class="button" id="next">Next Star!</button>
-  </div>
+  <div id="container">
 
-
-  <div id="right_side">
-    <div id="comments">
-      <h2>Comments</h2>
-      <ul class="comment">
-      <%# @comments.each do |comment| %>
-      <!-- <li  data-time="<%#= comment.created_at.to_i%>"> -->
-        <%#= comment.content %>
-        <%#= comment.user.name %>
-      </li>
-      <%# end %>
-      </ul>
+    <div id="left_side">
+      <div>
+        <meter value="50" min="0" max="100"></meter>
+      </div>
+      <div class="videoContainer">
+        <div id="videoPlayer"></div>
+        <button class="button" id="start">Start!</button>
+        <button class="button" id="next">Next!</button>
+        <button class="button" id="play">Play</button>
+        <button class="button" id="pause">Pause</button>
+      </div>
     </div>
 
+    <div id="top_right_side">
+      <% if current_party %>
+        <h2>Want to join?</h2>
+        <h2 class="info_bar"> Text: <%= @party.hash_tag%> </h2>
+        <h3>to 1-845-443-4529</h3><br>
+      <% end %>
+    </div>
 
-<h3>Songlist</h3>
-<div id="songlist">
-  <ul class="queue">
-    <% @queue.each do |song| %>
-    <li>
-      <%= song[:name] %>
-    </li>
-    <% end %>
-  </ul>
-</div>
+    <div id="right_side">
+      <div id="songlist">
+        <h2>Songlist</h2>
+        <ul class="queue">
+          <% @party.queue.each do |song| %>
+          <li id="#{song.id}"><%= song[:name] %></li>
+          <% end %>
+        </ul>
+      </div>
 
-</body>
+      <div id="comments">
+        <h2>Comments</h2>
+        <ul class="comment">
+          <% if @comments.size > 0 %>
+          <% @comments.each do |comment| %>
+          <li  data-time="<%= comment.created_at.to_i%>">
+            <%= comment.user.name %> says <%= comment.content %></li>
+          <% end %>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+
+    </body>

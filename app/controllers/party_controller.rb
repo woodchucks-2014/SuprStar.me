@@ -1,10 +1,20 @@
 class PartyController < ApplicationController
   include YouTubeHelper
+  include PartyHelper
   respond_to :json
   def index
     @party = Party.new
     @user = User.new
     @song = Song.new
+  end
+
+  def about
+  end
+
+  def instructions
+  end
+
+  def team
   end
 
   def show
@@ -18,38 +28,37 @@ class PartyController < ApplicationController
     @user = User.new(user_params)
     @song = Song.new(first_song)
     if @party.save && @user.save
-      @user.update(phone_number: "+1" + @user.phone_number)
       session[:party_id] = @party.id
-      p "-"* 100
-      p first = find(first_song[:name])
-      p first[:title]
-      p @song = Song.create(name: first[:title], youtube_url: first[:ytid], user_id: @user.id, party_id: @party.id)
-      p "-"* 100
+      init_song = find(first_song[:name])
+      @song = Song.create(name: init_song[:title], youtube_url: init_song[:ytid], user_id: @user.id, party_id: @party.id)
       @party.queue = []
       @queue = @party.queue << @song.serializable_hash
       @party.update(queue: @queue)
       redirect_to retrieve_party_path
     else
-      flash[:notice] = "Something went wrong, please try again."
+      flash[:notice] = @user.errors.messages
+      flash[:notice] = @party.errors.messages
       render 'index'
     end
   end
 
   def retrieve_video_id
-    @party = Party.find_by_id(session[:party_id]) #where to find id?
-    @queue = @party.queue
-    @current_video = @queue.shift
-    @party.update(queue: @queue)
+    find_video_helper(current_party)
+    render json: {url: @current_video }.to_json, :callback => params[:callback]
+  end
 
-    render json: {url: @current_video }
+
+  def retrieve_next_video_id
+    find_video_helper(current_party)
+    render json: {url: @current_video }.to_json
   end
 
   def retrieve_queue
-    @queue = Party.find_by_id(session[:party_id]).queue
-    render json: {queue: @queue}
+    @queue = Party.find_by_id(current_party).queue
+    render json: {queue: @queue}.to_json
   end
 
-  private
+private
   def party_params
     params.require(:party).permit(:hash_tag)
   end

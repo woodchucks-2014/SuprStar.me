@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SuperStarMe</title>
+  <title>SuprStarMe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  function parseVideo (json) {
+    console.log(json);
+    song_object = json;
+  }
+  </script>
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://www.suprstar.me/retrieve_video_id.js?callback=parseVideo"></script>
+  <script type="text/javascript" src="http://suprstar.herokuapp.com/retrieve_video_id.js?callback=parseVideo"></script>
   <script src="//www.google.com/jsapi" type="text/javascript"></script>
   <script type="text/javascript">google.load("swfobject", "2.1")</script>
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -14,14 +24,30 @@
 <body>
 <nav>
   <div class="navbar-header">
-    <h1>SuperStar Me</h1>
+    <% if current_page?(retrieve_party_path) %>
+      <h1>SuprStar.me</h1>
+    <% else %>
+      <h1 class="links"><%= link_to "SuprStar.me", root_path %></h1>
+    <% end %>
   </div>
+
+  <div class="navbar-contact-info">
+    <ul class="nav navbar-nav">
+    <% if current_party %>
+      <%= link_to signout_path, id: "sign_out" do %>
+      <li>End Party?</li>
+    <% end %>
+      <% else %>
+      <li class="links"><%= link_to "About", about_us_path %></li>
+      <li class="links"><%= link_to "Team", team_path %></li>
+      <li class="links"><%= link_to "Instructions", instructions_path %></li>
+    <% end %>
+  </ul>
+  </div>
+
 
   <div class="navbar-li">
     <ul class="nav navbar-nav pull-right">
-      <li class="">About</li>
-      <li class="">Blog</li>
-      <li class="">Team</li>
     </ul>
   </div>
 </nav>
