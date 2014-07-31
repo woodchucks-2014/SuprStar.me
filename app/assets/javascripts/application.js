@@ -14,9 +14,4 @@
 // = require jquery_ujs
 // = require turbolinks
 // = require_tree .
-$(document).ready(function(){
-  // set meter to 50
-  // rating = comment sentiment score * 5
-  //  add the rating to the new_meter
 
-});
