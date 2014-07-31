@@ -8,6 +8,8 @@ class CommentController < ApplicationController
 		@new_comments = []
 		@sentimental_score = 0
 		@comments.each do |com|
+			score = com.analyze_sentiment
+			com.update(sentimental_score: score["score"])
 			hash = {name: com.user.name, obj: com}
 			@sentimental_score += (com.score * 5) #do math here
 			p @new_comments << hash
