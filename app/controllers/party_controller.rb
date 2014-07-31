@@ -18,9 +18,8 @@ class PartyController < ApplicationController
   end
 
   def show
-    @party = Party.find(1)
-    @queue = Party.find_by_id(session[:party_id]).queue
-    p @comments = @party.comments
+    @party = Party.find(session[:party_id])
+    @comments = @party.comments
     @queue = @queue = @party.queue
   end
 
@@ -55,7 +54,7 @@ class PartyController < ApplicationController
   end
 
   def retrieve_queue
-    @queue = Party.find_by_id(session[:party_id]).queue
+    @queue = Party.find_by_id(current_party).queue
     render json: {queue: @queue}.to_json
   end
 

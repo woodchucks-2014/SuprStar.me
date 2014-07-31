@@ -4,13 +4,16 @@
   <div id="container">
 
     <div id="left_side">
-        <div class="videoContainer">
-          <div id="videoPlayer"></div>
-          <button class="button" id="start">Start!</button>
-          <button class="button" id="next">Next!</button>
-          <button class="button" id="play">Play</button>
-          <button class="button" id="pause">Pause</button>
-        </div>
+      <div>
+        <meter value="50" min="0" max="100"></meter>
+      </div>
+      <div class="videoContainer">
+        <div id="videoPlayer"></div>
+        <button class="button" id="start">Start!</button>
+        <button class="button" id="next">Next!</button>
+        <button class="button" id="play">Play</button>
+        <button class="button" id="pause">Pause</button>
+      </div>
     </div>
 
     <div id="top_right_side">
@@ -26,7 +29,7 @@
         <h2>Songlist</h2>
         <ul class="queue">
           <% @party.queue.each do |song| %>
-          <li id="#{song.id}"><%= song.name %></li>
+          <li id="#{song.id}"><%= song[:name] %></li>
           <% end %>
         </ul>
       </div>
@@ -34,7 +37,7 @@
       <div id="comments">
         <h2>Comments</h2>
         <ul class="comment">
-          <% if @comments %>
+          <% if @comments.size > 0 %>
           <% @comments.each do |comment| %>
           <li  data-time="<%= comment.created_at.to_i%>">
             <%= comment.user.name %> says <%= comment.content %></li>

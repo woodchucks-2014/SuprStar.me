@@ -13,9 +13,12 @@ var Comment = {
     console.log(latestCommentTime);
     $.ajax({
       url: "/retrieve_comments",
-      method: "POST",
+      method: "GET",
       data: latestCommentTime
     }).success(function(response){
+      console.log(response.content);
+      console.log(response.sentimental_score);
+      $('meter').data('value', (50 + response.sentimental_score));
       for (var i=0; i < response.content.length; i++) {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
