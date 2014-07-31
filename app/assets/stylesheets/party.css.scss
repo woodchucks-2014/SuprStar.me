@@ -343,7 +343,6 @@ input {
 
 
 
-    =======
     //  ************** Instructions *****************
     .instructions {
       z-index: -9;
@@ -361,17 +360,13 @@ input {
 
     .instructions #create_party{
       font-size: 1.5vw;
-      // border: 1px solid white;
       color:gray;
       font-weight: bold;
       text-align: center;
-      margin-top: 10%;
-      // width:20%;
+      margin-top: 100px;
       margin-left: 0 auto;
       margin-right: 0 auto;
-      // margin-left: 60%;
-      margin-bottom: 10%;
-    }
+  }
 
     #text_instructions, #party_instructions {
       font-family: 'Droid Sans', sans-serif;
