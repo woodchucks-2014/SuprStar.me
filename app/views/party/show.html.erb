@@ -4,9 +4,6 @@
   <div id="container">
 
     <div id="left_side">
-      <div>
-        <meter value="50" min="0" max="100"></meter>
-      </div>
       <div class="videoContainer">
         <div id="videoPlayer"></div>
         <button class="button" id="start">Start!</button>
@@ -18,12 +15,12 @@
 
     <div id="top_right_side">
       <% if current_party %>
-        <h2>Want to join?</h2>
-        <h2 class="info_bar"> Text: <%= @party.hash_tag%> </h2>
-        <h3>to 1-845-443-4529</h3><br>
+      <h2>To join send a text to:</h2>
+      <h2 class="info_bar"><%= @party.hash_tag%></h2>
+      <span><em>(e.g. #hashtag, your name, artist/song)</em></span>
+      <h3>to 1.845.443.4529</h3><br>
       <% end %>
     </div>
-
     <div id="right_side">
       <div id="songlist">
         <h2>Songlist</h2>
@@ -41,8 +38,8 @@
           <% @comments.each do |comment| %>
           <li  data-time="<%= comment.created_at.to_i%>">
             <%= comment.user.name %> says <%= comment.content %></li>
-          <% end %>
-          <% end %>
+            <% end %>
+            <% end %>
           </ul>
         </div>
       </div>
