@@ -1,23 +1,19 @@
-// Place all the styles related to the party controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 
 .home {
-    z-index: -9;
-    height: 100%;
-    width:100%;
-    text-align:center;
-    // background: url('Microphoneflipped.jpg') no-repeat center;
-    // background: url('http://cdn.desktopwallpapers4.me/wallpapers/music/1920x1200/1/6780-microphone-1920x1200-music-wallpaper.jpg') no-repeat center;
-    background: url('http://hotdot.pro/static/img/bck.png') no-repeat center;
-    background-size:cover;
-    position: fixed;
-    left:0;
-    top: 0;
-    overflow: hidden;
+  z-index: -9;
+  height: 100%;
+  width:100%;
+  text-align:center;
+  // background: url('Microphoneflipped.jpg') no-repeat center;
+  // background: url('http://cdn.desktopwallpapers4.me/wallpapers/music/1920x1200/1/6780-microphone-1920x1200-music-wallpaper.jpg') no-repeat center;
+  background: url('http://hotdot.pro/static/img/bck.png') no-repeat center;
+  background-size:cover;
+  position: fixed;
+  left:0;
+  top: 0;
+  overflow: hidden;
 
-    }
+}
 
 h1 {
   font-family: 'Oswald', sans-serif;
@@ -83,7 +79,7 @@ input {
   width: 377px;
 }
 
-// SHOW PAGE
+/*// SHOW PAGE*/
 
 .show #container {
   width: 100%;
@@ -102,17 +98,17 @@ input {
 }
 
 .show {
-    color: white;
-    z-index: -9;
-    height: 100%;
-    width:100%;
-    text-align:center;
-    background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
-    background-size: cover;
-    position: fixed;
-    left:0;
-    top: 0;
-    overflow: hidden;
+  color: white;
+  z-index: -9;
+  height: 100%;
+  width:100%;
+  text-align:center;
+  background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
+  background-size: cover;
+  position: fixed;
+  left:0;
+  top: 0;
+  overflow: hidden;
 }
 .show #container {
   margin-top: 12.5%
@@ -142,8 +138,8 @@ input {
 }
 
 #songlist {
-float: top;
-padding-bottom: 45%
+  float: top;
+  padding-bottom: 45%
 }
 
 #comments {
@@ -168,3 +164,127 @@ padding-bottom: 45%
 .show #songlist {
   background-color: blue;
 }
+
+
+/*About page*/
+
+.about {
+  color: white;
+  z-index: -9;
+  height: 100%;
+  width:100%;
+  text-align:center;
+  background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
+  background-size: cover;
+  position: fixed;
+  left:0;
+  top: 0;
+  overflow: hidden;
+
+  #about_intro {
+    margin-top: 10%;
+    font-size: 0.9em;
+  }
+
+  #about_intro h2 {
+    margin-top: 120px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5vw;
+    color:white;
+  }
+
+  #about_intro h3 {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 1.5vw;
+    color:white;
+  }
+}
+
+.team {
+  color: white;
+  /*z-index: -9;*/
+  height: 100%;
+  width:100%;
+  text-align:center;
+    background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
+  background-size: cover;
+  /*position: fixed;*/
+/*  left:0;
+  top: 0;
+  overflow: hidden;*/
+
+  #about_story {
+
+    margin: 0 auto;
+    width: 50%;
+    font-size: 0.5em;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  #about_story h2 {
+    margin-top: 120px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5vw;
+    color:white;
+  }
+  #about_story p {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 1.5vw;
+    color:white;
+  }
+
+  .team_photos {
+    width: 55%;
+    margin: 0 auto;
+}
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    .team-member{
+      width:33%;
+      float: left;
+
+      p {
+        font-family: 'Droid Sans', sans-serif;
+        font-size: 1.5vw;
+      }
+    }
+
+    #john {
+      height: 200px;
+      width: 200px;
+      /*background-color: blue;*/
+      float: left;
+      margin: 0;
+      /*position: absolute;*/
+      /*left: 0;*/
+    }
+    #ken {
+      height: 200px;
+      width: 200px;
+      /*background-color: yellow;*/
+      margin: 0 auto;
+    }
+
+    #kai {
+      height: 200px;
+      width: 200px;
+      /*background-color: orange;*/
+      /*position: absolute;*/
+      float: right;
+      /*right: 0;*/
+      margin: 0;
+      position: relative;
+      top: 0;
+    }
+
+
+
+  }
+
+
+
