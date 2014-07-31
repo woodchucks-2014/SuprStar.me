@@ -3,7 +3,6 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
     	t.float 			:score
       t.string      :content
-      t.float     :score
       t.belongs_to  :party
       t.belongs_to  :user
 
