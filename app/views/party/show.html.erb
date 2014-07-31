@@ -26,9 +26,9 @@
           <li>Trophies- Drake (Karaoke)</li>
           <li>Underground Kings- Drake (Karaoke)</li>
           <li>Poundcake- Drake (Karaoke)</li>
+          <li>Lose Yourself- Eminem (Karaoke)</li>
           <li>Vertigo- U2 (Karaoke)</li>
           <li>Without Me- Eminem (Karaoke)</li>
-          <li>Lose Yourself- Eminem (Karaoke)</li>
           <li>Stan- Eminem (Karaoke)</li>
           <% @queue.each do |song| %>
           <!-- <li id="#{sond.id}"> <%#= song[:name] %> </li> -->
@@ -41,16 +41,15 @@
         <ul class="comment">
           <% if @comments %>
           <% @comments.each do |comment| %>
-          <li  data-time="<%= comment.created_at.to_i%>">
+            <li  data-time="<%= comment.created_at.to_i%>">
             <%= comment.user.name %> says <%= comment.content %> </li>
           <% end %>
           <% end %>
-          <li> Kai says, "Welcome to SuperStar Me!"</li>
-          <li>Poundcake- Drake (Karaoke)</li>
-          <li>Vertigo- U2 (Karaoke)</li>
-          <li>Lose Yourself- Eminem (Karaoke)</li>
-          <li>Stan- Eminem (Karaoke)</li>
-
+            <li> Kai says, "Welcome to SuperStar Me!"</li>
+            <li>Poundcake- Drake (Karaoke)</li>
+            <li>Vertigo- U2 (Karaoke)</li>
+            <li>Lose Yourself- Eminem (Karaoke)</li>
+            <li>Stan- Eminem (Karaoke)</li>
           </ul>
         </div>
       </div>
