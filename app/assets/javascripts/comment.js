@@ -43,7 +43,7 @@ var Comment = {
         var song_title = response.queue[i].name;
         console.log(response.queue[i]);
         var itemQueue = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
-        var howManyFound = $('.queue').find("li[id='"+ response.queue[i].id +"'").size();
+        var howManyFound = $('.queue').find("li[id='"+ response.queue[i].id +"']").size();
         console.log(howManyFound);
         if ( howManyFound < 1) {
           console.log($('.queue li').size());
