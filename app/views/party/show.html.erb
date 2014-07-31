@@ -24,7 +24,7 @@
         <h2>Songlist</h2>
         <ul class="queue">
           <% @queue.each do |song| %>
-          <li id="#{sond.id}"> <%#= song[:name] %> </li>
+          <li id="#{song.id}"> <%= song[:name] %> </li>
           <% end %>
         </ul>
       </div>
@@ -34,8 +34,8 @@
         <ul class="comment">
           <% if @comments %>
           <% @comments.each do |comment| %>
-            <li  data-time="<%= comment.created_at.to_i%>">
-            <%= comment.user.name %> says <%= comment.content %> </li>
+          <li  data-time="<%= comment.created_at.to_i%>">
+            <%= comment.user.name %> says <%= comment.content %></li>
           <% end %>
           <% end %>
           </ul>
