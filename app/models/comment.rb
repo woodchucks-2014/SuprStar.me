@@ -2,11 +2,15 @@ class Comment < ActiveRecord::Base
   belongs_to  :user
   belongs_to  :party
 
-  # before_create :analyze_sentiment
+  before_create :value
 
   def analyze_sentiment
-    results = AlchemyAPI.search(:sentiment_analysis, :text => self.content)
-    self.score = results["score"]
-    self.save
+     p results = AlchemyAPI.search(:sentiment_analysis, :text => self.content)
+  end
+
+  def value
+    p self.score
+    p self.score = self.analyze_sentiment["score"].to_f
+    p self.score
   end
 end

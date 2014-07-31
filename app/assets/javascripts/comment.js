@@ -6,19 +6,20 @@ var seconds = function(date) {
 var Comment = {
   updateComments: function(){
     var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
-    console.log(latestCommentTime);
+    // console.log(latestCommentTime);
     if (latestCommentTime.time === undefined) {
       var latestCommentTime = {time: 0};
     }
-    console.log(latestCommentTime);
+    // console.log(latestCommentTime);
     $.ajax({
       url: "/retrieve_comments",
       method: "GET",
       data: latestCommentTime
     }).success(function(response){
-      console.log(response.content);
+      // console.log(response.content);
       console.log(response.sentimental_score);
       $('meter').data('value', (50 + response.sentimental_score));
+      $("#booMeter").attr("value", '"'+ response.sentimental_score + '"');
       for (var i=0; i < response.content.length; i++) {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
@@ -27,7 +28,7 @@ var Comment = {
             $(".comment li:first-child").remove();
           });
         }
-        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].obj.content + response.content[i].name + '</li>');
+        $('.comment').append('<li data-time="'+ time_in_seconds +'">' + response.content[i].name +"- "+ response.content[i].obj.content + '</li>');
       };
     }).fail(function(response){
       console.log("Either the UL does not contain comments or there is an error with your aJax request.");
@@ -39,12 +40,13 @@ var Comment = {
       url: "/retrieve_queue",
       method: "GET"
     }).success(function(response){
-      console.log(response);
+      // console.log(response);
       for (var i=0; i < response.queue.length; i++) {
         var song_title = response.queue[i].name;
-        console.log(response.queue[i]);
+        // console.log(response.queue[i]);
         var itemQueue = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
         var howManyFound = $('.queue').find("li[id='"+ response.queue[i].id +"']").size();
+        console.log("I am here.")
         console.log(howManyFound);
         if ( howManyFound < 1) {
           console.log($('.queue li').size());
