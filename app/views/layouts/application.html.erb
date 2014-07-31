@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SuperStarMe</title>
+  <title>SuprStarMe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -24,7 +24,11 @@
 <body>
 <nav>
   <div class="navbar-header">
-    <h1>SuperStar Me</h1>
+    <% if current_page?(retrieve_party_path) %>
+      <h1>SuprStar.me</h1>
+    <% else %>
+      <h1 class="links"><%= link_to "SuprStar.me", root_path %></h1>
+    <% end %>
   </div>
 
   <div class="navbar-contact-info">
@@ -34,9 +38,9 @@
       <li>End Party?</li>
       <% end %>
       <% else %>
-      <li class=""><%= link_to "About", about_us_path %></li>
+      <li class="links"><%= link_to "About", about_us_path %></li>
       <!-- <li class="">Blog</li> -->
-      <li class=""><%= link_to "Instructions", instructions_path %></li>
+      <li class="links"><%= link_to "Instructions", instructions_path %></li>
     <% end %>
   </ul>
   </div>

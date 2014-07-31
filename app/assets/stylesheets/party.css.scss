@@ -227,3 +227,49 @@ height: 360px;
   // background-color: blue;
   // border: 2px dotted white;
 }
+
+
+//  ************** Instructions *****************
+.instructions {
+    z-index: -9;
+    height: 100%;
+    width:100%;
+    text-align:center;
+    background: url('http://hotdot.pro/static/img/bck.png') no-repeat center;
+    background-size:cover;
+    position: fixed;
+    left:0;
+    top: 0;
+    overflow: hidden;
+
+    }
+
+.instructions #create_party{
+  font-size: 1.5vw;
+  // border: 1px solid white;
+  color:gray;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10%;
+  // width:20%;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+  // margin-left: 60%;
+  margin-bottom: 10%;
+}
+
+#text_instructions, #party_instructions {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 1.5vw;
+  color:white;
+}
+
+#create_party h2 {
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  font-size: 3.5vw;
+}
+
+
+
+// **********************************************
