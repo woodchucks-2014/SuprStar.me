@@ -16,6 +16,7 @@
 
 a:hover , a:link , a:visited{
   color: white;
+  text-decoration: none;
 }
 
 .welcome{
@@ -115,7 +116,6 @@ input #submit{
 }
 
 ::-webkit-input-placeholder {
-   color: orange;
    font-size: .7em;
 }
 
@@ -367,6 +367,8 @@ input #submit{
         position: relative;
         top: 0;
       }
+
+      
     }
 
 
