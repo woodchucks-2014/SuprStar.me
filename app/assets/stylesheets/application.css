@@ -47,3 +47,22 @@ nav .links {
   text-decoration: none;
 }
 
+meter {
+
+  display: block;
+  margin: 0 auto;
+
+  width: 550px;
+  height: 25px;
+
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+}
+
+
+
+
+
+
+
