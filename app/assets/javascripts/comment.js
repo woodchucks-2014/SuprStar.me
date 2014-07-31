@@ -44,10 +44,11 @@ var Comment = {
         var appendComment = $('.queue').append(comment);
 
         if ($('.queue').find('li').attr("id", response.queue[i].id).size() < 1) {
-          if ($('.queue li').size() === 5) {
-          appendComment.hide();
+          if ($('.queue li').size() > 5) {
+            appendComment.hide();
+          } else {
+            appendComment;
           }
-        appendComment;
         }
       }
     }).fail(function(response){
