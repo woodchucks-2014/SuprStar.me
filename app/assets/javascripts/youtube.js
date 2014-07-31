@@ -79,7 +79,7 @@ var _initJquery = function() {
 
 $(document).ready(function(){
   _initJquery();
-  _run("JbU1AyONp64");
+
 
   $("#play").click(function(e){
     YouTube.playVideo();
