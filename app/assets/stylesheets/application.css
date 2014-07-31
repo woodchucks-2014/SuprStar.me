@@ -43,9 +43,11 @@ nav ul li {
   color: white;
 }
 
-nav .links {
+li .links:hover {
   text-decoration: none;
+  text-color: white;
 }
+
 
 meter {
 
@@ -59,10 +61,3 @@ meter {
   border-radius: 3px;
 
 }
-
-
-
-
-
-
-

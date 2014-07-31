@@ -35,7 +35,7 @@ var YouTube = {
   loadPlayer: function(videoID) {
     params = { allowScriptAccess: "always"};
     var atts = { id: "ytPlayer" };
-    swfobject.embedSWF("http://www.youtube.com/v/" + videoID +
+    swfobject.embedSWF("http://www.youtube.com/v/" + 'JbU1AyONp64' +
     "?controls=0&modestbranding=1&iv_load_policy=3version=3&enablejsapi=1&playerapiid=player1",
     "videoPlayer", "960", "540", "9", null, null, params, atts);
   },
