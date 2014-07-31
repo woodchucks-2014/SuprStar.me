@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
 
   def analyze_sentiment
     p results = AlchemyAPI.search(:sentiment_analysis, :text => self.content)
-    p self.score = results["score"].to_i
+    p self.score = results["score"]
     self.save
   end
 end
