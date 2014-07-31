@@ -16,11 +16,10 @@ var Comment = {
       method: "POST",
       data: latestCommentTime
     }).success(function(response){
+      $('meter').data('value', (50 + response.sentimental_score));
       for (var i=0; i < response.content.length; i++) {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
-        console.log(response.content[i]);
-        console.log(response);
         if($(".comment li").size() >= 5) {
           $(".comment li:first-child").slideUp("slow", function(){
             $(".comment li:first-child").remove();
@@ -49,7 +48,7 @@ var Comment = {
           console.log($('.queue li').size());
           if ($('.queue li').size() > 5) {
             console.log("less than 5");
-            // appendComment.hide();
+            $(".queue").append(itemQueue).hide(); // *****note
           } else {
           $(".queue").append(itemQueue);
           }

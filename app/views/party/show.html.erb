@@ -4,11 +4,16 @@
   <div id="container">
 
     <div id="left_side">
-        <div class="videoContainer">
-          <div id="videoPlayer"></div>
-          <button class="button" id="start">Start!</button>
-          <button class="button" id="next">Next!</button>
-        </div>
+      <div>
+        <meter value="50" min="0" max="100"></meter>
+      </div>
+      <div class="videoContainer">
+        <div id="videoPlayer"></div>
+        <button class="button" id="start">Start!</button>
+        <button class="button" id="next">Next!</button>
+        <button class="button" id="play">Play</button>
+        <button class="button" id="pause">Pause</button>
+      </div>
     </div>
 
     <div id="top_right_side">
@@ -23,8 +28,8 @@
       <div id="songlist">
         <h2>Songlist</h2>
         <ul class="queue">
-          <% @queue.each do |song| %>
-          <li id="#{song.id}"> <%= song[:name] %> </li>
+          <% @party.queue.each do |song| %>
+          <li id="#{song.id}"><%= song[:name] %></li>
           <% end %>
         </ul>
       </div>
