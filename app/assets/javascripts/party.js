@@ -5,4 +5,10 @@ $(document).ready(function(){
     $("#toForm").hide();
     $("#partyForm").fadeIn("slow");
   });
+
+
+
+$('.team-member').mouseover(function(){
+    $('this').effect("shake");
+});
 });

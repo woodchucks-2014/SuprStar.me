@@ -14,6 +14,9 @@ class PartyController < ApplicationController
   def instructions
   end
 
+  def team
+  end
+
   def show
     @party = Party.find(session[:party_id])
     p @comments = @party.comments

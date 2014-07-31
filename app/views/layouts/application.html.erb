@@ -36,11 +36,11 @@
     <% if current_party %>
       <%= link_to signout_path, id: "sign_out" do %>
       <li>End Party?</li>
-      <% end %>
+    <% end %>
       <% else %>
-      <li class="links"><%= link_to "About", about_us_path %></li>
-      <!-- <li class="">Blog</li> -->
-      <li class="links"><%= link_to "Instructions", instructions_path %></li>
+      <li class=""><%= link_to "About", about_us_path %></li>
+      <li class=""><%= link_to "Team", team_path %></li>
+      <li class=""><%= link_to "Instructions", instructions_path %></li>
     <% end %>
   </ul>
   </div>
