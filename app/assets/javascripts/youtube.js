@@ -49,16 +49,35 @@ var YouTube = {
 };
 
 $(document).ready(function(){
+  $(".queue li").hide(); //Called when new comment is added?
+  $(".queue li:lt(5)").show();
   $("#videoPlayer").hide();
+
+  $(".button").hover(function(){
+    $(this).animate({backgroundColor: "black"}, 200);
+  }, function(){
+    $(this).animate({backgroundColor: "#666666"}, 200);
+  });
+
+
+
   $("#start").click(function(e){
     e.preventDefault();
+    $(".queue li").eq(0).animate({backgroundColor: "green"}, 700);
+    $(".queue li").eq(1).delay(180).animate({backgroundColor: "red"}, 700);
     $("#start").fadeOut();
     YouTube.get_first_video();
     $("#videoPlayer").slideDown();
   });
 
-  $("#next").click(function(e){
+  $("body").on("click", "#next", function(e){
     e.preventDefault();
     YouTube.get_next_video();
+    $(".queue li:first-child").slideUp("slow", function(){
+      $(".queue li:first-child").remove();
+      $(".queue li").eq(0).animate({backgroundColor: "green"}, 700);
+      $(".queue li").eq(1).delay(180).animate({backgroundColor: "red"}, 700);
+      $(".queue li").eq(5).slideDown("slow").show();
+    });
   });
 });

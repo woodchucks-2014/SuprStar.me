@@ -43,4 +43,7 @@ nav ul li {
   color: white;
 }
 
+nav .links {
+  text-decoration: none;
+}
 
