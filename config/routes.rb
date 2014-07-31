@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get 'retrieve_next_video_id' => "party#retrieve_next_video_id"
 
   get 'retrieve_comments' => "comment#retrieve_comments"
-  post 'retrieve_comments' => "comment#retrieve_comments"
 
   get 'retrieve_queue' => "party#retrieve_queue"
   get 'retrieve_party' => "party#show"
