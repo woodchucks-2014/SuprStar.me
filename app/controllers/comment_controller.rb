@@ -10,7 +10,7 @@ class CommentController < ApplicationController
 		@comments.each do |com|
 			hash = {name: com.user.name, obj: com}
 			@sentimental_score += (com.score * 5) #do math here
-			@new_comments << hash
+			p @new_comments << hash
 		end
 		render json: {content: @new_comments, sentimental_score: @sentimental_score}.to_json
 	end
