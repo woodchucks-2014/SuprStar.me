@@ -48,10 +48,9 @@ var YouTube = {
   }
 };
 
-$(document).ready(function(){
-  $(".queue li").hide(); //Called when new comment is added?
-  $(".queue li:lt(5)").show();
-  $("#videoPlayer").hide();
+var _initJquery = function() {
+  $('.queue li').hide();
+  $('.queue li:lt(5)').slideDown("slow");
 
   $(".button").hover(function(){
     $(this).animate({backgroundColor: "black"}, 200);
@@ -59,7 +58,15 @@ $(document).ready(function(){
     $(this).animate({backgroundColor: "#666666"}, 200);
   });
 
+  $(".show .queue li").hover(function(){
+    $(this).animate({backgroundColor: 'rgba(0,0,0,1)'}, 150);
+  }, function(){
+    $(this).animate({backgroundColor: 'rgba(0,0,0,0.2)'}, 150);
+  });
+}
 
+$(document).ready(function(){
+  _initJquery();
 
   $("#start").click(function(e){
     e.preventDefault();
@@ -77,7 +84,7 @@ $(document).ready(function(){
       $(".queue li:first-child").remove();
       $(".queue li").eq(0).animate({backgroundColor: "green"}, 700);
       $(".queue li").eq(1).delay(180).animate({backgroundColor: "red"}, 700);
-      $(".queue li").eq(5).slideDown("slow").show();
+      $(".queue li").eq(4).slideDown("slow").show();
     });
   });
 });
