@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20140726163700) do
   create_table "comments", force: true do |t|
     t.float    "score"
     t.string   "content"
-    t.float    "score"
     t.integer  "party_id"
     t.integer  "user_id"
     t.datetime "created_at"
