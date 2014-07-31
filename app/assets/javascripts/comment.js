@@ -40,15 +40,15 @@ var Comment = {
     }).success(function(response){
       for (var i=0; i < response.queue.length; i++) {
         var song_title = response.queue[i].name;
-        var comment = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
-        var appendComment = $('.queue').append(comment);
 
         if ($('.queue').find('li').attr("id", response.queue[i].id).size() < 1) {
-          if ($('.queue li').size() > 5) {
-            appendComment.hide();
-          } else {
-            appendComment;
-          }
+          var comment = '<li id="'+ response.queue[i].id +'">' + song_title + '</li>';
+          // if ($('.queue li').size() > 5) {
+            // appendComment.hide();
+          // } else {
+            $('.queue').append(comment);
+            // appendComment;
+          // }
         }
       }
     $(".queue li").hide(); //Called when new comment is added?
