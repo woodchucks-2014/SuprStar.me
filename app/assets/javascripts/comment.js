@@ -49,7 +49,7 @@ var Comment = {
           console.log($('.queue li').size());
           if ($('.queue li').size() > 5) {
             console.log("less than 5");
-            // appendComment.hide();
+            $(".queue").append(itemQueue).hide(); // *****note
           } else {
           $(".queue").append(itemQueue);
           }
