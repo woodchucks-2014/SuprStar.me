@@ -6,3 +6,4 @@ class Comment < ActiveRecord::Base
 		AlchemyAPI.search(:sentiment_analysis, :text => self.content)
 	end
 end
+
