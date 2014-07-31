@@ -1,23 +1,18 @@
-// Place all the styles related to the party controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 
 .home {
-    z-index: -9;
-    height: 100%;
-    width:100%;
-    text-align:center;
-    // background: url('Microphoneflipped.jpg') no-repeat center;
-    // background: url('http://cdn.desktopwallpapers4.me/wallpapers/music/1920x1200/1/6780-microphone-1920x1200-music-wallpaper.jpg') no-repeat center;
-    background: url('http://hotdot.pro/static/img/bck.png') no-repeat center;
-    background-size:cover;
-    position: fixed;
-    left:0;
-    top: 0;
-    overflow: hidden;
-
-    }
+  z-index: -9;
+  height: 100%;
+  width:100%;
+  text-align:center;
+  // background: url('Microphoneflipped.jpg') no-repeat center;
+  // background: url('http://cdn.desktopwallpapers4.me/wallpapers/music/1920x1200/1/6780-microphone-1920x1200-music-wallpaper.jpg') no-repeat center;
+  background: url('http://hotdot.pro/static/img/bck.png') no-repeat center;
+  background-size:cover;
+  position: fixed;
+  left:0;
+  top: 0;
+  overflow: hidden;
+}
 
 h1 {
   font-family: 'Oswald', sans-serif;
@@ -95,7 +90,7 @@ input {
   width: 377px;
 }
 
-// SHOW PAGE
+/*// SHOW PAGE*/
 
 .show .queue{
   padding: 0;
@@ -116,114 +111,273 @@ input {
 }
 
 // .show .queue li:first-child {
-//   background-color: green;
-//   // color: ;
-// }
-//
-// .show .queue li:nth-child(2) {
-//   background-color: red;
-//   // color: ;
-// }
+  //   background-color: green;
+  //   // color: ;
+  // }
+  //
+  // .show .queue li:nth-child(2) {
+    //   background-color: red;
+    //   // color: ;
+    // }
 
-.show #comments {
-  height: 300px;
-}
+    .show #comments {
+      height: 300px;
+    }
 
-.show .comment {
-  padding: 0;
-  text-align: center;
-  overflow: auto;
-  list-style: none;
-}
+    .show .comment {
+      padding: 0;
+      text-align: center;
+      overflow: auto;
+      list-style: none;
+    }
 
-.show .comment li {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  margin: 0 auto;
-  font-size: 1.5vw;
-  background-color: rgba(0, 0, 0, 0.5)
-}
+    .show .comment li {
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      margin: 0 auto;
+      font-size: 1.5vw;
+      background-color: rgba(0, 0, 0, 0.5)
+    }
 
-.show #container {
-  width: 100%;
-  display: inline-block;
-}
-.show .videoContainer {
-  margin: 0 auto;
-  height: 50%;
-  // background-color: red;
-  padding-bottom: 40%
-}
+    .show #container {
+      width: 100%;
+      display: inline-block;
+    }
+    .show .videoContainer {
+      margin: 0 auto;
+      height: 50%;
+      // background-color: red;
+      padding-bottom: 40%
+    }
 
-.show #videoPlayer{
-  left: 0;
-}
+    .show #videoPlayer{
+      left: 0;
+    }
 
-.show {
-    color: white;
-    z-index: -9;
-    height: 100%;
-    width:100%;
-    text-align:center;
-    background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
-    background-size: cover;
-    position: fixed;
-    left:0;
-    top: 0;
-    overflow: hidden;
-}
-.show #container {
-  margin-top: 100px;
+    .show {
+      color: white;
+      z-index: -9;
+      height: 100%;
+      width:100%;
+      text-align:center;
+      background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
+      background-size: cover;
+      position: fixed;
+      left:0;
+      top: 0;
+      overflow: hidden;
+    }
+    .show #container {
+      margin-top: 100px;
 
-}
+    }
 
-.show #top_right_side {
-  float: right;
-  padding-right: 2.5%;
-  width:25%;
-}
+    .show #top_right_side {
+      float: right;
+      padding-right: 2.5%;
+      width:25%;
+    }
 
-.show #right_side {
-  float: right;
-  width: 25%;
-  padding-right: 2.5%;
-}
+    .show #right_side {
+      float: right;
+      width: 25%;
+      padding-right: 2.5%;
+    }
 
-.show h2 {
-  margin: 0px;
-  font-size: 1.5vw;
-}
+    .show h2 {
+      margin: 0px;
+      font-size: 1.5vw;
+    }
 
-.show h3 {
-  margin: 0px;
-  font-size: 1.1vw;
-}
+    .show h3 {
+      margin: 0px;
+      font-size: 1.1vw;
+    }
 
-#songlist {
-float: top;
-height: 360px;
-}
+    #songlist {
+      float: top;
+      padding-bottom: 45%
+    }
 
-#comments {
-  float: bottom;
-  padding-bottom: 45%
-}
+    #comments {
+      float: bottom;
+      padding-bottom: 45%
+    }
 
-.show #left_side {
-  float: left;
-  width: 65%;
-}
-.show .videoContainer {
-  padding-top: 100px;
-  background-color: white;
-}
+    .show #left_side {
+      float: left;
+      width: 65%;
+    }
+    .show .videoContainer {
+      padding-top: 100px;
+      background-color: white;
+    }
 
-.show #comments {
-  border: 2px dotted red;
-}
+    .show #comments {
+      border: 2px dotted red;
+    }
 
-.show #songlist {
-  // background-color: blue;
-  // border: 2px dotted white;
-}
+    .show #songlist {
+      // background-color: blue;
+      // border: 2px dotted white;
+    }
+
+
+    /*About page*/
+
+    .about {
+      color: white;
+      z-index: -9;
+      height: 100%;
+      width:100%;
+      text-align:center;
+      background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
+      background-size: cover;
+      position: fixed;
+      left:0;
+      top: 0;
+      overflow: hidden;
+
+      #about_intro {
+        margin-top: 10%;
+        font-size: 0.9em;
+      }
+
+      #about_intro h2 {
+        margin-top: 120px;
+        font-family: 'Oswald', sans-serif;
+        font-size: 3.5vw;
+        color:white;
+      }
+
+      #about_intro h3 {
+        font-family: 'Droid Sans', sans-serif;
+        font-size: 1.5vw;
+        color:white;
+      }
+    }
+
+    .team {
+      color: white;
+      /*z-index: -9;*/
+      height: 100%;
+      width:100%;
+      text-align:center;
+      background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
+      background-size: cover;
+      /*position: fixed;*/
+      /*  left:0;
+      top: 0;
+      overflow: hidden;*/
+
+      #about_story {
+
+        margin: 0 auto;
+        width: 50%;
+        font-size: 0.5em;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      #about_story h2 {
+        margin-top: 120px;
+        font-family: 'Oswald', sans-serif;
+        font-size: 3.5vw;
+        color:white;
+      }
+      #about_story p {
+        font-family: 'Droid Sans', sans-serif;
+        font-size: 1.5vw;
+        color:white;
+      }
+
+      .team_photos {
+        width: 55%;
+        margin: 0 auto;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+
+      .team-member{
+        width:33%;
+        float: left;
+
+        p {
+          font-family: 'Droid Sans', sans-serif;
+          font-size: 1.5vw;
+        }
+      }
+
+      #john {
+        height: 200px;
+        width: 200px;
+        /*background-color: blue;*/
+        float: left;
+        margin: 0;
+        /*position: absolute;*/
+        /*left: 0;*/
+      }
+      #ken {
+        height: 200px;
+        width: 200px;
+        /*background-color: yellow;*/
+        margin: 0 auto;
+      }
+
+      #kai {
+        height: 200px;
+        width: 200px;
+        /*background-color: orange;*/
+        /*position: absolute;*/
+        float: right;
+        /*right: 0;*/
+        margin: 0;
+        position: relative;
+        top: 0;
+      }
+    }
+
+
+
+    //  ************** Instructions *****************
+    .instructions {
+      z-index: -9;
+      height: 100%;
+      width:100%;
+      text-align:center;
+      background: url('http://hotdot.pro/static/img/bck.png') no-repeat center;
+      background-size:cover;
+      position: fixed;
+      left:0;
+      top: 0;
+      overflow: hidden;
+
+    }
+
+    .instructions #create_party{
+      font-size: 1.5vw;
+      color:gray;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 100px;
+      margin-left: 0 auto;
+      margin-right: 0 auto;
+  }
+
+    #text_instructions, #party_instructions {
+      font-family: 'Droid Sans', sans-serif;
+      font-size: 1.5vw;
+      color:white;
+    }
+
+    #create_party h2 {
+      font-family: 'Oswald', sans-serif;
+      color: white;
+      font-size: 3.5vw;
+    }
+
+    // **********************************************
