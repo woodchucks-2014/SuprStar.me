@@ -6,6 +6,7 @@ class CommentController < ApplicationController
 	def retrieve_comments
 		@party = current_party #where to get party id from?
 		@comments = @party.comments.where("created_at > ?", Time.at(params[:time].to_i + 1))
+		@comment_size = @comments.size
 		@new_comments = []
 		@sentimental_score = 0
 		@comments.each do |com|
@@ -13,7 +14,7 @@ class CommentController < ApplicationController
 			@sentimental_score += (com.score * 10) #do math here
 			@new_comments << hash
 		end
-		render json: {content: @new_comments, sentimental_score: @sentimental_score}.to_json
+		render json: {content: @new_comments, sentimental_score: @sentimental_score, comment_size: @comment_size}.to_json
 	end
 
 end
