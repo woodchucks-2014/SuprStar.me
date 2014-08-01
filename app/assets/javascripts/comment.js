@@ -3,8 +3,6 @@ var seconds = function(date) {
  return new Date(date).getTime() / 1000;
 }
 
-var meterSum = 0;
-
 var Comment = {
   updateComments: function(){
     var latestCommentTime = {time: $(".comment li:last-child").attr("data-time")};
@@ -19,13 +17,12 @@ var Comment = {
       data: latestCommentTime
     }).success(function(response){
       var meterScore = response.sentimental_score + 50;
-      console.log("Meter Score Below")
-      console.log(meterScore);
       if (meterScore !== 50) {
         // Add number to sum (Make sure sum is not reset!)
-        var meterValue  = meterSum + meterScore/ response.comment_size;
+        meterSum += meterScore;
+        var meterValue = meterSum / response.comment_size;
         // Pass integer to divide sum by and append sum.
-        $("#booMeter").attr("value",meterValue);
+        $("#booMeter").attr("value", meterValue);
       }
       console.log("Meter Value Below");
       console.log(meterValue);
@@ -86,5 +83,6 @@ var _runPolling = function() {
 };
 
 $(document).ready(function(){
+  var meterSum = 0;
     _runPolling();
 });
