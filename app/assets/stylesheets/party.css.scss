@@ -6,7 +6,7 @@
   text-align:center;
   // background: url('Microphoneflipped.jpg') no-repeat center;
   // background: url('http://cdn.desktopwallpapers4.me/wallpapers/music/1920x1200/1/6780-microphone-1920x1200-music-wallpaper.jpg') no-repeat center;
-  background: url('http://hotdot.pro/static/img/bck.png') no-repeat center;
+  background: url('/images/bcg.jpg') no-repeat center;
   background-size:cover;
   position: fixed;
   left:0;
@@ -47,9 +47,13 @@ h1 {
 .home .button{
   border: none;
   text-shadow: 0px 0px 0px #666666;
+  box-shadow: 0 0 18px #91bd09;
+  border-radius: 5px;
   color: #ffffff;
   font-size: 31px;
-  background: #666666;
+  font-style: italic;
+  // background: #666666;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   margin: 0 auto;
@@ -76,7 +80,8 @@ input {
   text-shadow: 0px 0px 0px #666666;
   color: #ffffff;
   font-size: 31px;
-  background: #666666;
+  // background: #666666;
+  background-color: rgba(0,0,0, 0.8);
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   margin: 0 auto;
@@ -106,7 +111,12 @@ form {
   color: white;
 }
 
+input {
+  border-radius: 5px;
+}
+
 input #submit{
+
   // border-radius: 5px;
   margin-top: 10px;
   font-size: 1.8em;
@@ -117,6 +127,8 @@ input #submit{
 
 ::-webkit-input-placeholder {
    font-size: .7em;
+   color: #91bd09;
+   line-height: 37px;
 }
 
 /*// SHOW PAGE*/
@@ -133,12 +145,14 @@ input #submit{
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  // color: green;
+  box-shadow: 0 0 10px gray;
   white-space: nowrap;
   box-sizing: border-box;
   height: 60px;
   line-height: 60px;
   font-size: 1.5vw;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.8);
   // animation: marquee 50s linear infinite;
 }
 
@@ -193,20 +207,30 @@ input #submit{
       height: 100%;
       width:100%;
       text-align:center;
-      background: url('http://hotdot.pro/static/img/bck.png') no-repeat fixed center;
-      background-size: cover;
       position: fixed;
       left:0;
       top: 0;
       overflow: hidden;
     }
+
+    .background{
+      z-index: -99;
+      background: url('/images/bcg2.jpg') no-repeat fixed center;
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width:100%;
+    }
+
     .show #container {
       margin-top: 100px;
 
     }
 
     .show #joinText {
-      
+
     }
 
     .show #top_right_side {
@@ -375,7 +399,7 @@ input #submit{
         top: 0;
       }
 
-      
+
     }
 
 
