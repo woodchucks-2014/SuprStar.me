@@ -30,7 +30,7 @@ body {
   transition: height 0.3s linear;
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 1em;
-  box-shadow: 0 0 18px #91bd09;
+  box-shadow: 0 0 18px purple;
 
 }
 nav h1 {
@@ -62,7 +62,7 @@ meter {
   display: block;
   margin: 0 auto;
 
-  width: 550px;
+  width: 50%;
   height: 25px;
 
   border: 1px solid #ccc;

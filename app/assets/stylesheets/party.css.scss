@@ -145,12 +145,14 @@ input #submit{
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  // color: green;
+  box-shadow: 0 0 10px gray;
   white-space: nowrap;
   box-sizing: border-box;
   height: 60px;
   line-height: 60px;
   font-size: 1.5vw;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.8);
   // animation: marquee 50s linear infinite;
 }
 
@@ -205,13 +207,23 @@ input #submit{
       height: 100%;
       width:100%;
       text-align:center;
-      background: url('/images/bcg.jpg') no-repeat fixed center;
-      background-size: cover;
       position: fixed;
       left:0;
       top: 0;
       overflow: hidden;
     }
+
+    .background{
+      z-index: -99;
+      background: url('/images/bcg2.jpg') no-repeat fixed center;
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width:100%;
+    }
+
     .show #container {
       margin-top: 100px;
 
