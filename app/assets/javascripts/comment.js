@@ -16,11 +16,11 @@ var Comment = {
       method: "GET",
       data: latestCommentTime
     }).success(function(response){
-      var meterScore = response.sentimental_score + 50;
-      if (meterScore !== 50) {
+      var meterScore = response.sentimental_score;
+      if (meterScore !== 0) {
         // Add number to sum (Make sure sum is not reset!)
         meterSum += meterScore;
-        var meterValue = meterSum / response.comment_size;
+        var meterValue = meterSum + 50 / response.comment_size;
         // Pass integer to divide sum by and append sum.
         $("#booMeter").attr("value", meterValue);
       }
