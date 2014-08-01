@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140726163700) do
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.float    "score"
+    t.float    "score",      default: 0.0
     t.string   "content"
     t.integer  "party_id"
     t.integer  "user_id"

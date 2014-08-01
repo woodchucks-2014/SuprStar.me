@@ -7,7 +7,7 @@ module NotificationHelper
 
 	def send_sms(phone_number, body)
 		twilio_client.account.messages.create(
-			:from => "+18454434529",
+			:from => ENV["TWILIO_NUMBER"],
 			:to => phone_number,
 			:body => body
 			)
@@ -45,7 +45,7 @@ module NotificationHelper
 			song_info = text_body.slice!(1..text_body.length)
 			party = user.party
 		when comment_text
-			comment = text_body
+			comment = text_body[1..text_body.length]
 		else
 			text_body
 		end
@@ -80,7 +80,7 @@ module NotificationHelper
 		when user_comment
 			comment = text_body.slice!(1..text_body.length)
 			Comment.create(content: comment , user_id: user.id, party_id: user.party.id)
-			send_sms(phone_number, be_nice)	  
+			send_sms(phone_number, be_nice)
 		when user_sing_again
 			video = find(song_info)
 			p video[:title]

@@ -20,7 +20,7 @@ class PartyController < ApplicationController
   def show
     @party = Party.find(session[:party_id])
     @comments = @party.comments
-    @queue = @queue = @party.queue
+    @first_song = Song.where(party_id: session[:party_id]).first
   end
 
   def create

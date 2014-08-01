@@ -13,13 +13,6 @@ var YouTube = {
     }
   },
 
-  // loadPlayer: function(videoID) {
-  //   params = { allowScriptAccess: "always"};
-  //   var atts = { id: "ytPlayer" };
-  //   swfobject.embedSWF("http://www.youtube.com/v/" + videoID +
-  //   "?version=3&enablejsapi=1&playerapiid=player1",
-  //   "videoPlayer", "960", "540", "9", null, null, params, atts);
-  // },
   pauseVideo: function() {
     if (ytplayer) {
     ytplayer.pauseVideo();
@@ -86,6 +79,7 @@ var _initJquery = function() {
 
 $(document).ready(function(){
   _initJquery();
+
 
   $("#play").click(function(e){
     YouTube.playVideo();

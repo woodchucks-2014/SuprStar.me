@@ -4,6 +4,9 @@
   <div id="container">
 
     <div id="left_side">
+      <div>
+      <meter id="booMeter" value="50" min="0" max="100"></meter>
+      </div>
       <div class="videoContainer">
         <div id="videoPlayer"></div>
         <div id="videoButtons">
@@ -14,38 +17,36 @@
         </div>
       </div>
     </div>
-
-    <div id="top_right_side">
-      <% if current_party %>
-      <h2>To join send a text to:</h2>
-      <h2 class="info_bar"><%= @party.hash_tag%></h2>
-      <span><em>(e.g. #hashtag, your name, artist/song)</em></span>
-      <h3>to 1.845.443.4529</h3><br>
-      <% end %>
-    </div>
-    <div id="right_side">
-      <div id="songlist">
-        <h2>Songlist</h2>
-        <ul class="queue">
-          <% if @party.queue.size > 0 %>
-            <% @party.queue.each do |song| %>
-            <li id="#{song.id}"><%= song[:name] %></li>
-            <% end %>
+        <div id="joinText">
+          <% if current_party %>
+            <span>
+              <h2 style="color:red">Want to join?</h2>
+              <h2 class="info_bar"> Text: <strong><%= @party.hash_tag%></strong> to <strong>1.845.443.4529</strong></h2>
+            </span>
           <% end %>
-        </ul>
-      </div>
-
-      <div id="comments">
-        <h2>Comments</h2>
-        <ul class="comment">
-          <% if @comments.size > 0 %>
-          <% @comments.each do |comment| %>
-          <li  data-time="<%= comment.created_at.to_i%>">
-            <%= comment.user.name %> says <%= comment.content %></li>
-            <% end %>
-            <% end %>
-          </ul>
         </div>
       </div>
 
-    </body>
+        <div id="right_side">
+
+
+          <div id="songlist">
+            <h2>Songlist</h2>
+            <ul class="queue">
+              <li class="marquee" id="#{@first_song['id']"><%= @first_song["name"] %></li>
+            </ul>
+          </div>
+
+          <div id="comments">
+            <h2>Comments</h2>
+            <ul class="comment">
+              <% if @comments.size > 0 %>
+                <% @comments.each do |comment| %>
+              <li  data-time="<%= comment.created_at.to_i%>">
+                <%= comment.user.name %> says <%= comment.content %></li>
+                <% end %>
+                <% end %>
+              </ul>
+              </div>
+    </div>
+</body>
