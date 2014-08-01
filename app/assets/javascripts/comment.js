@@ -17,8 +17,8 @@ var Comment = {
       data: latestCommentTime
     }).success(function(response){
       var meterScore = response.sentimental_score + 50;
-      console.log(meterScore)
-      $("#booMeter").attr("value", '"'+ meterScore + '"');
+      console.log(meterScore);
+      $("#booMeter").attr("value",meterScore);
       for (var i=0; i < response.content.length; i++) {
         var time = response.content[i].obj.created_at;
         var time_in_seconds = seconds(time);
