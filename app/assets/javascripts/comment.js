@@ -83,6 +83,6 @@ var _runPolling = function() {
 };
 
 $(document).ready(function(){
-  var meterSum = 0;
+    meterSum = 0;
     _runPolling();
 });
