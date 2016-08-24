@@ -11,7 +11,7 @@ Create a party, sit back, relax, and let everyone text in their song when they a
 3. [Kenneth Mendonca](https://github.com/mendoncakr)
 
 ## Website
-soon to be http://www.SuprStar.me
+http://www.SuprStar.me
 
 ## Trello
 [Our Trello Board](https://trello.com/b/8F9iSa5R/superstar-me)
